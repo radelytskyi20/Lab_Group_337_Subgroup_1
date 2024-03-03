@@ -1,28 +1,49 @@
 ﻿using DbSeeder;
+using Library.Data;
+using Library.Services;
 using System.Reflection;
 
-//load clients
-var clientsXml = LoadXmlResource(ResourceNames.CLIENTS);
-if (clientsXml is not null)
+using var dbContext = new ApplicationDbContext();
+IClientsManagerService clientsManagerService = new ClientsManagerService(dbContext);
+IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(dbContext);
+IMasterManagerService masterManagerService = new MasterManagerService(dbContext);
+
+Console.WriteLine("Start seeding...");
+try
 {
-    var clients = ClientXmlParser.Parse(clientsXml);
+    //load clients
+    var clientsXml = LoadXmlResource(ResourceNames.CLIENTS);
+    if (clientsXml is not null)
+    {
+        var clients = ClientXmlParser.Parse(clientsXml);
+        foreach (var client in clients)
+            await clientsManagerService.AddAsync(client);
+    }
+
+    //load master
+    var masterXml = LoadXmlResource(ResourceNames.MASTER);
+    if (masterXml is not null)
+    {
+        var masters = MasterXmlParser.Parse(masterXml);
+        foreach (var master in masters)
+            await masterManagerService.AddAsync(master);
+    }
+
+    //load holdings
+    var holdingsXml = LoadXmlResource(ResourceNames.HOLDINGS);
+    if (holdingsXml is not null)
+    {
+        var holdings = HoldingXmlParser.Parse(holdingsXml);
+        foreach (var holding in holdings)
+            await holdingsManagerService.AddAsync(holding);
+    }
+
+    Console.WriteLine("Seeding completed");
 }
-
-
-//load holdings
-var holdingsXml = LoadXmlResource(ResourceNames.HOLDINGS);
-if (holdingsXml is not null)
+catch (Exception ex)
 {
-    var holdings = HoldingXmlParser.Parse(holdingsXml);
+    Console.WriteLine("Seeding not completed. Error: {0}", ex.Message);
 }
-
-//load master
-var masterXml = LoadXmlResource(ResourceNames.MASTER);
-if (masterXml is not null)
-{
-    var master = MasterXmlParser.Parse(masterXml);
-}
-
 
 static string? LoadXmlResource(string resourceName)
 {
@@ -30,7 +51,7 @@ static string? LoadXmlResource(string resourceName)
     using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceLocation);
     if (stream is null)
     {
-        Console.WriteLine("Resource {0} was not found", ResourceNames.CLIENTS);
+        Console.WriteLine("Resource {0} was not found", resourceName);
         return null;
     }
 

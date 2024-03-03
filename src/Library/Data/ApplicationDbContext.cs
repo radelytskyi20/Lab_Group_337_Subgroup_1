@@ -5,11 +5,12 @@ namespace Library.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        private const string DbPath = @"D:\Университет\3 КУРС 2 СЕМЕСТР\Технологии создания программ(Момот)\Labs\holdings.db";
         public ApplicationDbContext() { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=holdings.db");
+            optionsBuilder.UseSqlite($"Data Source={DbPath}");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
