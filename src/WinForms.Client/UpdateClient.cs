@@ -20,7 +20,9 @@ namespace WinForms.Client
         private readonly IClientManager _clientManager;
         public UpdateClient(Library.Models.Client client)
         {
-            _clientManager = new ClientManager();
+            var serviceGenerator = new ServicesGenerator();
+
+            _clientManager = serviceGenerator.CreateClientManager();
             Client = client;
             InitializeComponent();
         }
@@ -44,7 +46,7 @@ namespace WinForms.Client
         }
         private void ExitAddClientFormButton_Click(object sender, EventArgs e) => Close();
 
-        private void UpdateClientFormButton_Click(object sender, EventArgs e)
+        private async void UpdateClientFormButton_Click(object sender, EventArgs e)
         {
             var firstName = FirstNameTextBox.Text;
             var lastName = LastNameTextBox.Text;
@@ -80,7 +82,7 @@ namespace WinForms.Client
                 Interests = interests
             };
 
-            
+            await _clientManager.UpdateAsync(clientToUpdate);
             MessageBox.Show("Client updated successfully!");
             Close();
         }

@@ -10,7 +10,9 @@ namespace WinForms.Client
         private readonly IClientManager _clientManager;
         public Main()
         {
-            _clientManager = new ClientManager();
+            var serviceGenerator = new ServicesGenerator();
+
+            _clientManager = serviceGenerator.CreateClientManager();
             InitializeComponent();
         }
 

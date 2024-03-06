@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinForms.Client.Interfaces;
 using WinForms.Client.Services;
 
 namespace WinForms.Client
@@ -20,7 +19,9 @@ namespace WinForms.Client
         private readonly IClientManager _clientManager;
         public AddClient()
         {
-            _clientManager = new ClientManager();
+            var serviceGenerator = new ServicesGenerator();
+
+            _clientManager = serviceGenerator.CreateClientManager();
             InitializeComponent();
         }
 
