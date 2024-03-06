@@ -1,13 +1,16 @@
 using Library.Data;
 using Library.Models;
 using Library.Services;
+using WinForms.Client.Services;
 
 namespace WinForms.Client
 {
     public partial class Main : Form
     {
+        private readonly IClientManager _clientManager;
         public Main()
         {
+            _clientManager = new ClientManager();
             InitializeComponent();
         }
 
@@ -56,9 +59,7 @@ namespace WinForms.Client
         }
         private async Task UpdateForm()
         {
-            using var context = new ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            var clients = await clientsManagerService.GetAllAsync();
+            var clients = await _clientManager.GetAllAsync();
             clientsGridView.DataSource = clients;
             clientsGridView.Columns["Holdings"].Visible = false;
             clientsBindingSource.DataSource = clientsGridView.DataSource;
@@ -67,6 +68,15 @@ namespace WinForms.Client
         {
             dataGridView.ClearSelection();
             dataGridView.Rows[bindingSource.Position].Selected = true;
+        }
+
+        private async void btnClinetsDelete_Click(object sender, EventArgs e)
+        {
+            if (clientsBindingSource.Current is Library.Models.Client client)
+            {
+                await _clientManager.DeletetAsync(client.AcctNbr);
+                await UpdateForm();
+            }
         }
     }
 }

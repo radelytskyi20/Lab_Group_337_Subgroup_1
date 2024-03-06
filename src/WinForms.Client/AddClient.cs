@@ -10,17 +10,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinForms.Client.Interfaces;
+using WinForms.Client.Services;
 
 namespace WinForms.Client
 {
     public partial class AddClient : Form
     {
+        private readonly IClientManager _clientManager;
         public AddClient()
         {
+            _clientManager = new ClientManager();
             InitializeComponent();
         }
 
-        private void AddClientFormButton_Click(object sender, EventArgs e)
+        private async void AddClientFormButton_Click(object sender, EventArgs e)
         {
             var acctNbr = AcctNbrTextBox.Text;
             var firstName = FirstNameTextBox.Text;
@@ -57,9 +61,7 @@ namespace WinForms.Client
                 Interests = interests
             };
 
-            using var context = new Library.Data.ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            clientsManagerService.AddAsync(client);
+            await _clientManager.AddAsync(client);
             MessageBox.Show("Client added successfully!");
             Close();
         }

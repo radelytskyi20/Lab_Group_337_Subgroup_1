@@ -10,14 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinForms.Client.Services;
 
 namespace WinForms.Client
 {
     public partial class UpdateClient : Form
     {
         private Library.Models.Client Client { get; set; }
+        private readonly IClientManager _clientManager;
         public UpdateClient(Library.Models.Client client)
         {
+            _clientManager = new ClientManager();
             Client = client;
             InitializeComponent();
         }
@@ -77,9 +80,7 @@ namespace WinForms.Client
                 Interests = interests
             };
 
-            using var context = new Library.Data.ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            clientsManagerService.UpdateAsync(clientToUpdate);
+            
             MessageBox.Show("Client updated successfully!");
             Close();
         }

@@ -44,9 +44,13 @@
             btnClientsLast = new Button();
             btnClientsUpdate = new Button();
             btnClinetsDelete = new Button();
+            holdingsGridView = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)holdingsGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -94,7 +98,7 @@
             // clientsGridView
             // 
             clientsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            clientsGridView.Location = new Point(12, 31);
+            clientsGridView.Location = new Point(12, 66);
             clientsGridView.Name = "clientsGridView";
             clientsGridView.RowHeadersWidth = 51;
             clientsGridView.RowTemplate.Height = 29;
@@ -103,7 +107,7 @@
             // 
             // AddClientButton
             // 
-            AddClientButton.Location = new Point(12, 366);
+            AddClientButton.Location = new Point(12, 401);
             AddClientButton.Name = "AddClientButton";
             AddClientButton.Size = new Size(94, 29);
             AddClientButton.TabIndex = 2;
@@ -113,7 +117,7 @@
             // 
             // btnClientsFirst
             // 
-            btnClientsFirst.Location = new Point(519, 366);
+            btnClientsFirst.Location = new Point(519, 401);
             btnClientsFirst.Name = "btnClientsFirst";
             btnClientsFirst.Size = new Size(94, 29);
             btnClientsFirst.TabIndex = 3;
@@ -123,7 +127,7 @@
             // 
             // btnClientsPrevious
             // 
-            btnClientsPrevious.Location = new Point(619, 366);
+            btnClientsPrevious.Location = new Point(619, 401);
             btnClientsPrevious.Name = "btnClientsPrevious";
             btnClientsPrevious.Size = new Size(94, 29);
             btnClientsPrevious.TabIndex = 4;
@@ -133,7 +137,7 @@
             // 
             // btnClientsNext
             // 
-            btnClientsNext.Location = new Point(719, 366);
+            btnClientsNext.Location = new Point(719, 401);
             btnClientsNext.Name = "btnClientsNext";
             btnClientsNext.Size = new Size(94, 29);
             btnClientsNext.TabIndex = 5;
@@ -143,7 +147,7 @@
             // 
             // btnClientsLast
             // 
-            btnClientsLast.Location = new Point(819, 366);
+            btnClientsLast.Location = new Point(819, 401);
             btnClientsLast.Name = "btnClientsLast";
             btnClientsLast.Size = new Size(94, 29);
             btnClientsLast.TabIndex = 6;
@@ -153,7 +157,7 @@
             // 
             // btnClientsUpdate
             // 
-            btnClientsUpdate.Location = new Point(112, 366);
+            btnClientsUpdate.Location = new Point(112, 401);
             btnClientsUpdate.Name = "btnClientsUpdate";
             btnClientsUpdate.Size = new Size(94, 29);
             btnClientsUpdate.TabIndex = 7;
@@ -163,18 +167,50 @@
             // 
             // btnClinetsDelete
             // 
-            btnClinetsDelete.Location = new Point(212, 366);
+            btnClinetsDelete.Location = new Point(212, 401);
             btnClinetsDelete.Name = "btnClinetsDelete";
             btnClinetsDelete.Size = new Size(94, 29);
             btnClinetsDelete.TabIndex = 8;
             btnClinetsDelete.Text = "Delete";
             btnClinetsDelete.UseVisualStyleBackColor = true;
+            btnClinetsDelete.Click += btnClinetsDelete_Click;
+            // 
+            // holdingsGridView
+            // 
+            holdingsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            holdingsGridView.Location = new Point(12, 469);
+            holdingsGridView.Name = "holdingsGridView";
+            holdingsGridView.RowHeadersWidth = 51;
+            holdingsGridView.RowTemplate.Height = 29;
+            holdingsGridView.Size = new Size(1878, 315);
+            holdingsGridView.TabIndex = 9;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 43);
+            label1.Name = "label1";
+            label1.Size = new Size(53, 20);
+            label1.TabIndex = 10;
+            label1.Text = "Clients";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 446);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 20);
+            label2.TabIndex = 11;
+            label2.Text = "Holdings";
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(holdingsGridView);
             Controls.Add(btnClinetsDelete);
             Controls.Add(btnClientsUpdate);
             Controls.Add(btnClientsLast);
@@ -187,11 +223,13 @@
             MainMenuStrip = menuStrip1;
             Name = "Main";
             Text = "Main";
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)holdingsGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -213,5 +251,8 @@
         private Button btnClientsLast;
         private Button btnClientsUpdate;
         private Button btnClinetsDelete;
+        private DataGridView holdingsGridView;
+        private Label label1;
+        private Label label2;
     }
 }
