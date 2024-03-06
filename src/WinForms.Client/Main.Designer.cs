@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
@@ -36,8 +37,16 @@
             contextToolStripMenuItem = new ToolStripMenuItem();
             clientsGridView = new DataGridView();
             AddClientButton = new Button();
+            clientsBindingSource = new BindingSource(components);
+            btnClientsFirst = new Button();
+            btnClientsPrevious = new Button();
+            btnClientsNext = new Button();
+            btnClientsLast = new Button();
+            btnClientsUpdate = new Button();
+            btnClinetsDelete = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -89,7 +98,7 @@
             clientsGridView.Name = "clientsGridView";
             clientsGridView.RowHeadersWidth = 51;
             clientsGridView.RowTemplate.Height = 29;
-            clientsGridView.Size = new Size(924, 315);
+            clientsGridView.Size = new Size(1878, 315);
             clientsGridView.TabIndex = 1;
             // 
             // AddClientButton
@@ -102,21 +111,87 @@
             AddClientButton.UseVisualStyleBackColor = true;
             AddClientButton.Click += AddClientButton_Click;
             // 
-            // Form1
+            // btnClientsFirst
+            // 
+            btnClientsFirst.Location = new Point(519, 366);
+            btnClientsFirst.Name = "btnClientsFirst";
+            btnClientsFirst.Size = new Size(94, 29);
+            btnClientsFirst.TabIndex = 3;
+            btnClientsFirst.Text = "First";
+            btnClientsFirst.UseVisualStyleBackColor = true;
+            btnClientsFirst.Click += btnClientsFirst_Click;
+            // 
+            // btnClientsPrevious
+            // 
+            btnClientsPrevious.Location = new Point(619, 366);
+            btnClientsPrevious.Name = "btnClientsPrevious";
+            btnClientsPrevious.Size = new Size(94, 29);
+            btnClientsPrevious.TabIndex = 4;
+            btnClientsPrevious.Text = "Previous";
+            btnClientsPrevious.UseVisualStyleBackColor = true;
+            btnClientsPrevious.Click += btnClientsPrevious_Click;
+            // 
+            // btnClientsNext
+            // 
+            btnClientsNext.Location = new Point(719, 366);
+            btnClientsNext.Name = "btnClientsNext";
+            btnClientsNext.Size = new Size(94, 29);
+            btnClientsNext.TabIndex = 5;
+            btnClientsNext.Text = "Next";
+            btnClientsNext.UseVisualStyleBackColor = true;
+            btnClientsNext.Click += btnClientsNext_Click;
+            // 
+            // btnClientsLast
+            // 
+            btnClientsLast.Location = new Point(819, 366);
+            btnClientsLast.Name = "btnClientsLast";
+            btnClientsLast.Size = new Size(94, 29);
+            btnClientsLast.TabIndex = 6;
+            btnClientsLast.Text = "Last";
+            btnClientsLast.UseVisualStyleBackColor = true;
+            btnClientsLast.Click += btnClientsLast_Click;
+            // 
+            // btnClientsUpdate
+            // 
+            btnClientsUpdate.Location = new Point(112, 366);
+            btnClientsUpdate.Name = "btnClientsUpdate";
+            btnClientsUpdate.Size = new Size(94, 29);
+            btnClientsUpdate.TabIndex = 7;
+            btnClientsUpdate.Text = "Update";
+            btnClientsUpdate.UseVisualStyleBackColor = true;
+            btnClientsUpdate.Click += btnClientsUpdate_Click;
+            // 
+            // btnClinetsDelete
+            // 
+            btnClinetsDelete.Location = new Point(212, 366);
+            btnClinetsDelete.Name = "btnClinetsDelete";
+            btnClinetsDelete.Size = new Size(94, 29);
+            btnClinetsDelete.TabIndex = 8;
+            btnClinetsDelete.Text = "Delete";
+            btnClinetsDelete.UseVisualStyleBackColor = true;
+            // 
+            // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
+            Controls.Add(btnClinetsDelete);
+            Controls.Add(btnClientsUpdate);
+            Controls.Add(btnClientsLast);
+            Controls.Add(btnClientsNext);
+            Controls.Add(btnClientsPrevious);
+            Controls.Add(btnClientsFirst);
             Controls.Add(AddClientButton);
             Controls.Add(clientsGridView);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
+            Name = "Main";
             Text = "Main";
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)clientsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,5 +206,12 @@
         private ToolStripMenuItem contextToolStripMenuItem;
         private DataGridView clientsGridView;
         private Button AddClientButton;
+        private BindingSource clientsBindingSource;
+        private Button btnClientsFirst;
+        private Button btnClientsPrevious;
+        private Button btnClientsNext;
+        private Button btnClientsLast;
+        private Button btnClientsUpdate;
+        private Button btnClinetsDelete;
     }
 }

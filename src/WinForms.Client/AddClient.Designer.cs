@@ -320,6 +320,7 @@
             ExitAddClientFormButton.TabIndex = 31;
             ExitAddClientFormButton.Text = "Exit";
             ExitAddClientFormButton.UseVisualStyleBackColor = true;
+            ExitAddClientFormButton.Click += ExitAddClientFormButton_Click;
             // 
             // AddClient
             // 

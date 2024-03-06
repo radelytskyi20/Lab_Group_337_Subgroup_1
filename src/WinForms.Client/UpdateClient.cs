@@ -13,16 +13,36 @@ using System.Windows.Forms;
 
 namespace WinForms.Client
 {
-    public partial class AddClient : Form
+    public partial class UpdateClient : Form
     {
-        public AddClient()
+        private Library.Models.Client Client { get; set; }
+        public UpdateClient(Library.Models.Client client)
         {
+            Client = client;
             InitializeComponent();
         }
 
-        private void AddClientFormButton_Click(object sender, EventArgs e)
+        private void UpdateClient_Load(object sender, EventArgs e)
         {
-            var acctNbr = AcctNbrTextBox.Text;
+            FirstNameTextBox.Text = Client.FirstName;
+            LastNameTextBox.Text = Client.LastName;
+            AddressTextBox.Text = Client.Address;
+            CityTextBox.Text = Client.City;
+            StateTextBox.Text = Client.State;
+            ZipTextBox.Text = Client.Zip;
+            PhoneTextBox.Text = Client.Phone;
+            DateOpenTextBox.Text = Client.DateOpen.ToString();
+            SsNumberTextBox.Text = Client.SsNumber.ToString();
+            BirthDateTextBox.Text = Client.BirthDate.ToString();
+            RiskLevelTextBox.Text = Client.RiskLevel;
+            OccupationTextBox.Text = Client.Occupation;
+            ObjectivesTextBox.Text = Client.Objectives;
+            InterestsTextBox.Text = Client.Interests;
+        }
+        private void ExitAddClientFormButton_Click(object sender, EventArgs e) => Close();
+
+        private void UpdateClientFormButton_Click(object sender, EventArgs e)
+        {
             var firstName = FirstNameTextBox.Text;
             var lastName = LastNameTextBox.Text;
             var address = AddressTextBox.Text;
@@ -37,10 +57,10 @@ namespace WinForms.Client
             var occupation = OccupationTextBox.Text;
             var objectives = ObjectivesTextBox.Text;
             var interests = InterestsTextBox.Text;
-
-            var client = new Library.Models.Client
+            
+            var clientToUpdate = new Library.Models.Client
             {
-                AcctNbr = int.Parse(acctNbr),
+                AcctNbr = Client.AcctNbr,
                 FirstName = firstName,
                 LastName = lastName,
                 Address = address,
@@ -48,9 +68,9 @@ namespace WinForms.Client
                 State = state,
                 Zip = zip,
                 Phone = phone,
-                DateOpen = DateTime.ParseExact(dateOpen, "dd.MM.yyyy", CultureInfo.InvariantCulture),
+                DateOpen = DateTime.ParseExact(dateOpen, "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                 SsNumber = int.Parse(ssNumber),
-                BirthDate = DateTime.ParseExact(birthDate, "dd.MM.yyyy", CultureInfo.InvariantCulture),
+                BirthDate = DateTime.ParseExact(birthDate, "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture),
                 RiskLevel = riskLevel,
                 Occupation = occupation,
                 Objectives = objectives,
@@ -59,11 +79,9 @@ namespace WinForms.Client
 
             using var context = new Library.Data.ApplicationDbContext();
             IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            clientsManagerService.AddAsync(client);
-            MessageBox.Show("Client added successfully!");
+            clientsManagerService.UpdateAsync(clientToUpdate);
+            MessageBox.Show("Client updated successfully!");
             Close();
         }
-
-        private void ExitAddClientFormButton_Click(object sender, EventArgs e) => Close();
     }
 }
