@@ -1,16 +1,16 @@
-﻿using Library.Models;
+﻿using Library.Constants;
+using Library.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        private const string DbPath = @"D:\Университет\3 КУРС 2 СЕМЕСТР\Технологии создания программ(Момот)\Labs\holdings.db";
         public ApplicationDbContext() { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            optionsBuilder.UseSqlite($"Data Source={ConnectionStrings.Default}");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
