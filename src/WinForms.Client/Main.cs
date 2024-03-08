@@ -98,5 +98,12 @@ namespace WinForms.Client
                 await UpdateForm();
             }
         }
+
+        private async void btnAddHolding_Click(object sender, EventArgs e)
+        {
+            var form = new AddHolding();
+            form.ShowDialog();
+            await UpdateForm();
+        }
     }
 }

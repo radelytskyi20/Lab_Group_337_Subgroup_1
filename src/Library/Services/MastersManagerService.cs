@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Services
 {
-    public interface IMasterManagerService
+    public interface IMastersManagerService
     {
         Task<Master?> GetOneAsync(string symbol);
         Task<IEnumerable<Master>> GetAllAsync();
@@ -12,12 +12,12 @@ namespace Library.Services
         Task UpdateAsync(Master master);
         Task DeleteAsync(string symbol);
     }
-    public class MasterManagerService : IMasterManagerService
+    public class MastersManagerService : IMastersManagerService
     {
         public DbSet<Master> Table { get; init; }
         public ApplicationDbContext DbContext { get; init; }
 
-        public MasterManagerService(ApplicationDbContext dbContext)
+        public MastersManagerService(ApplicationDbContext dbContext)
         {
             DbContext = dbContext;
             Table = dbContext.Masters;

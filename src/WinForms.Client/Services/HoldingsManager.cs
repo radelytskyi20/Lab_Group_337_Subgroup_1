@@ -13,7 +13,9 @@ namespace WinForms.Client.Services
     {
         public Task AddAsync(Holding holding)
         {
-            throw new NotImplementedException();
+            using var context = new ApplicationDbContext();
+            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
+            return holdingsManagerService.AddAsync(holding);
         }
 
         public async Task<IEnumerable<Holding>> GetAllAsync(int acctNbr)

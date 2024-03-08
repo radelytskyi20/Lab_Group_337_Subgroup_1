@@ -6,7 +6,7 @@ using System.Reflection;
 using var dbContext = new ApplicationDbContext();
 IClientsManagerService clientsManagerService = new ClientsManagerService(dbContext);
 IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(dbContext);
-IMasterManagerService masterManagerService = new MasterManagerService(dbContext);
+IMastersManagerService masterManagerService = new MastersManagerService(dbContext);
 
 Console.WriteLine("Start seeding...");
 try

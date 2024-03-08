@@ -49,6 +49,9 @@
             label2 = new Label();
             label3 = new Label();
             mastersGridView = new DataGridView();
+            btnAddHolding = new Button();
+            btnUpdateHolding = new Button();
+            btnDeleteHolding = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
@@ -225,11 +228,42 @@
             mastersGridView.Size = new Size(1878, 229);
             mastersGridView.TabIndex = 13;
             // 
+            // btnAddHolding
+            // 
+            btnAddHolding.Location = new Point(12, 617);
+            btnAddHolding.Name = "btnAddHolding";
+            btnAddHolding.Size = new Size(94, 29);
+            btnAddHolding.TabIndex = 14;
+            btnAddHolding.Text = "Add";
+            btnAddHolding.UseVisualStyleBackColor = true;
+            btnAddHolding.Click += btnAddHolding_Click;
+            // 
+            // btnUpdateHolding
+            // 
+            btnUpdateHolding.Location = new Point(112, 617);
+            btnUpdateHolding.Name = "btnUpdateHolding";
+            btnUpdateHolding.Size = new Size(94, 29);
+            btnUpdateHolding.TabIndex = 15;
+            btnUpdateHolding.Text = "Update";
+            btnUpdateHolding.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteHolding
+            // 
+            btnDeleteHolding.Location = new Point(211, 617);
+            btnDeleteHolding.Name = "btnDeleteHolding";
+            btnDeleteHolding.Size = new Size(94, 29);
+            btnDeleteHolding.TabIndex = 16;
+            btnDeleteHolding.Text = "Delete";
+            btnDeleteHolding.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1042);
+            Controls.Add(btnDeleteHolding);
+            Controls.Add(btnUpdateHolding);
+            Controls.Add(btnAddHolding);
             Controls.Add(mastersGridView);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -281,5 +315,8 @@
         private Label label2;
         private Label label3;
         private DataGridView mastersGridView;
+        private Button btnAddHolding;
+        private Button btnUpdateHolding;
+        private Button btnDeleteHolding;
     }
 }
