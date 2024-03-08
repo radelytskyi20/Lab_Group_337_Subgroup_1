@@ -17,7 +17,7 @@ namespace WinForms.Client
     public partial class UpdateClient : Form
     {
         private Library.Models.Client Client { get; set; }
-        private readonly IClientManager _clientManager;
+        private readonly IClientsManager _clientManager;
         public UpdateClient(Library.Models.Client client)
         {
             var serviceGenerator = new ServicesGenerator();

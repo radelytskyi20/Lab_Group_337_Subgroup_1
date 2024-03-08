@@ -4,7 +4,7 @@ using Library.Services;
 
 namespace WinForms.Client.Services
 {
-    public interface IClientManager
+    public interface IClientsManager
     {
         Task AddAsync(Library.Models.Client client);
         Task UpdateAsync(Library.Models.Client client);
@@ -12,7 +12,7 @@ namespace WinForms.Client.Services
         Task DeletetAsync(int id);
 
     }
-    public class ClientManager : IClientManager
+    public class ClientsManager : IClientsManager
     {
         public async Task AddAsync(Library.Models.Client client)
         {

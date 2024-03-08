@@ -16,7 +16,7 @@ namespace WinForms.Client
 {
     public partial class AddClient : Form
     {
-        private readonly IClientManager _clientManager;
+        private readonly IClientsManager _clientManager;
         public AddClient()
         {
             var serviceGenerator = new ServicesGenerator();

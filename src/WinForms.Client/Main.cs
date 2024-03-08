@@ -1,17 +1,20 @@
 using Library.Data;
 using Library.Models;
 using Library.Services;
+using System.Windows.Forms;
 using WinForms.Client.Services;
 
 namespace WinForms.Client
 {
     public partial class Main : Form
     {
-        private readonly IClientManager _clientManager;
+        private readonly IClientsManager _clientManager;
+        private readonly IHoldingsManager _holdingsManager;
         public Main()
         {
             var serviceGenerator = new ServicesGenerator();
 
+            _holdingsManager = serviceGenerator.CreateHoldingsManager();
             _clientManager = serviceGenerator.CreateClientManager();
             InitializeComponent();
         }
@@ -25,28 +28,28 @@ namespace WinForms.Client
             await UpdateForm();
         }
 
-        private void btnClientsFirst_Click(object sender, EventArgs e)
+        private async void btnClientsFirst_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MoveFirst();
-            UpdateDataGridView(clientsGridView, clientsBindingSource);
+            await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
-        private void btnClientsPrevious_Click(object sender, EventArgs e)
+        private async void btnClientsPrevious_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MovePrevious();
-            UpdateDataGridView(clientsGridView, clientsBindingSource);
+            await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
-        private void btnClientsNext_Click(object sender, EventArgs e)
+        private async void btnClientsNext_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MoveNext();
-            UpdateDataGridView(clientsGridView, clientsBindingSource);
+            await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
-        private void btnClientsLast_Click(object sender, EventArgs e)
+        private async void btnClientsLast_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MoveLast();
-            UpdateDataGridView(clientsGridView, clientsBindingSource);
+            await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
         private async void btnClientsUpdate_Click(object sender, EventArgs e)
         {
@@ -57,6 +60,21 @@ namespace WinForms.Client
                 var form = new UpdateClient(client);
                 form.ShowDialog();
                 await UpdateForm();
+            }
+        }
+        private async Task UpdateAfterClientSelect(DataGridView dataGridView, BindingSource bindingSource)
+        {
+            UpdateDataGridView(dataGridView, bindingSource);
+            await UpdateHoldingsGridView();
+        }
+        private async Task UpdateHoldingsGridView()
+        {
+            if (clientsBindingSource.Current is Library.Models.Client client)
+            {
+                var holdings = await _holdingsManager.GetAllAsync(client.AcctNbr);
+                holdingsGridView.DataSource = holdings;
+                holdingsGridView.Columns["Client"].Visible = false;
+                holdingsGridView.Columns["Master"].Visible = false;
             }
         }
         private async Task UpdateForm()
