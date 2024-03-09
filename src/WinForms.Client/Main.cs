@@ -1,6 +1,7 @@
 using Library.Data;
 using Library.Models;
 using Library.Services;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Windows.Forms;
 using WinForms.Client.Services;
 
@@ -31,24 +32,28 @@ namespace WinForms.Client
         private async void btnClientsFirst_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MoveFirst();
+            holdingsBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
         private async void btnClientsPrevious_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MovePrevious();
+            holdingsBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
         private async void btnClientsNext_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MoveNext();
+            holdingsBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
         private async void btnClientsLast_Click(object sender, EventArgs e)
         {
             clientsBindingSource.MoveLast();
+            holdingsBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
         private async void btnClientsUpdate_Click(object sender, EventArgs e)
@@ -94,9 +99,10 @@ namespace WinForms.Client
         private void UpdateDataGridView(DataGridView dataGridView, BindingSource bindingSource)
         {
             dataGridView.ClearSelection();
-            dataGridView.Rows[bindingSource.Position].Selected = true;
-        }
 
+            if (bindingSource.Position!= -1)
+                dataGridView.Rows[bindingSource.Position].Selected = true;
+        }
         private async void btnClinetsDelete_Click(object sender, EventArgs e)
         {
             if (clientsBindingSource.Current is Library.Models.Client client)
@@ -154,19 +160,7 @@ namespace WinForms.Client
             {
                 await _holdingsManager.DeleteAsync(holding.Id);
                 MessageBox.Show("Holding deleted successfully!");
-                await UpdateForm();
-            }
-        }
-
-        private async void btnAllHoldings_Click(object sender, EventArgs e)
-        {
-            var holdings = await _holdingsManager.GetAllAsync();
-            if (holdings.Any())
-            {
-                holdingsGridView.DataSource = holdings;
-                holdingsGridView.Columns["Client"].Visible = false;
-                holdingsGridView.Columns["Master"].Visible = false;
-                holdingsBindingSource.DataSource = holdingsGridView.DataSource;
+                await UpdateHoldingsGridView();
             }
         }
     }
