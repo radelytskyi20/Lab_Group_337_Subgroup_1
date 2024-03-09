@@ -57,6 +57,7 @@
             btnHoldingsPrevious = new Button();
             btnHoldingsFirst = new Button();
             holdingsBindingSource = new BindingSource(components);
+            btnAllHoldings = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
@@ -252,6 +253,7 @@
             btnUpdateHolding.TabIndex = 15;
             btnUpdateHolding.Text = "Update";
             btnUpdateHolding.UseVisualStyleBackColor = true;
+            btnUpdateHolding.Click += btnUpdateHolding_Click;
             // 
             // btnDeleteHolding
             // 
@@ -261,6 +263,7 @@
             btnDeleteHolding.TabIndex = 16;
             btnDeleteHolding.Text = "Delete";
             btnDeleteHolding.UseVisualStyleBackColor = true;
+            btnDeleteHolding.Click += btnDeleteHolding_Click;
             // 
             // btnHoldingsLast
             // 
@@ -302,11 +305,22 @@
             btnHoldingsFirst.UseVisualStyleBackColor = true;
             btnHoldingsFirst.Click += btnHoldingsFirst_Click;
             // 
+            // btnAllHoldings
+            // 
+            btnAllHoldings.Location = new Point(311, 617);
+            btnAllHoldings.Name = "btnAllHoldings";
+            btnAllHoldings.Size = new Size(94, 29);
+            btnAllHoldings.TabIndex = 21;
+            btnAllHoldings.Text = "All";
+            btnAllHoldings.UseVisualStyleBackColor = true;
+            btnAllHoldings.Click += btnAllHoldings_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1042);
+            Controls.Add(btnAllHoldings);
             Controls.Add(btnHoldingsLast);
             Controls.Add(btnHoldingsNext);
             Controls.Add(btnHoldingsPrevious);
@@ -374,5 +388,6 @@
         private Button btnHoldingsPrevious;
         private Button btnHoldingsFirst;
         private BindingSource holdingsBindingSource;
+        private Button btnAllHoldings;
     }
 }

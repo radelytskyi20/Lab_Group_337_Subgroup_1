@@ -8,6 +8,9 @@ namespace WinForms.Client.Services
     {
         Task AddAsync(Holding holding);
         Task<IEnumerable<Holding>> GetAllAsync(int acctNbr);
+        Task UpdateAsync(Holding holding);
+        Task<IEnumerable<Holding>> GetAllAsync();
+        Task DeleteAsync(Guid id);
     }
     public class HoldingsManager : IHoldingsManager
     {
@@ -26,6 +29,27 @@ namespace WinForms.Client.Services
 
             return holdings.Where(h => h.AcctNbr == acctNbr)
                 .ToList();
+        }
+
+        public async Task UpdateAsync(Holding holding)
+        {
+            using var context = new ApplicationDbContext();
+            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
+            await holdingsManagerService.UpdateAsync(holding);
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            using var context = new ApplicationDbContext();
+            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
+            await holdingsManagerService.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<Holding>> GetAllAsync()
+        {
+            using var context = new ApplicationDbContext();
+            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
+            return await holdingsManagerService.GetAllAsync();
         }
     }
 }

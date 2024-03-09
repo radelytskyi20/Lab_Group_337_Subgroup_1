@@ -15,7 +15,7 @@ namespace WinForms.Client
             var serviceGenerator = new ServicesGenerator();
 
             _holdingsManager = serviceGenerator.CreateHoldingsManager();
-            _clientManager = serviceGenerator.CreateClientManager();
+            _clientManager = serviceGenerator.CreateClientsManager();
             InitializeComponent();
         }
 
@@ -55,8 +55,6 @@ namespace WinForms.Client
         {
             if (clientsBindingSource.Current is Library.Models.Client client)
             {
-                using var context = new ApplicationDbContext();
-                IClientsManagerService clientsManagerService = new ClientsManagerService(context);
                 var form = new UpdateClient(client);
                 form.ShowDialog();
                 await UpdateForm();
@@ -84,6 +82,14 @@ namespace WinForms.Client
             clientsGridView.DataSource = clients;
             clientsGridView.Columns["Holdings"].Visible = false;
             clientsBindingSource.DataSource = clientsGridView.DataSource;
+
+            if (!clients.Any()) return;
+
+            var holdings = await _holdingsManager.GetAllAsync(clients.ElementAt(clientsBindingSource.Position).AcctNbr);
+            holdingsGridView.DataSource = holdings;
+            holdingsGridView.Columns["Client"].Visible = false;
+            holdingsGridView.Columns["Master"].Visible = false;
+            holdingsBindingSource.DataSource = holdingsGridView.DataSource;
         }
         private void UpdateDataGridView(DataGridView dataGridView, BindingSource bindingSource)
         {
@@ -95,7 +101,8 @@ namespace WinForms.Client
         {
             if (clientsBindingSource.Current is Library.Models.Client client)
             {
-                await _clientManager.DeletetAsync(client.AcctNbr);
+                await _clientManager.DeleteAsync(client.AcctNbr);
+                MessageBox.Show("Client deleted successfully!");
                 await UpdateForm();
             }
         }
@@ -129,6 +136,38 @@ namespace WinForms.Client
         {
             holdingsBindingSource.MoveLast();
             UpdateDataGridView(holdingsGridView, holdingsBindingSource);
+        }
+
+        private async void btnUpdateHolding_Click(object sender, EventArgs e)
+        {
+            if (holdingsBindingSource.Current is Holding holding)
+            {
+                var form = new UpdateHolding(holding);
+                form.ShowDialog();
+                await UpdateForm();
+            }
+        }
+
+        private async void btnDeleteHolding_Click(object sender, EventArgs e)
+        {
+            if (holdingsBindingSource.Current is Holding holding)
+            {
+                await _holdingsManager.DeleteAsync(holding.Id);
+                MessageBox.Show("Holding deleted successfully!");
+                await UpdateForm();
+            }
+        }
+
+        private async void btnAllHoldings_Click(object sender, EventArgs e)
+        {
+            var holdings = await _holdingsManager.GetAllAsync();
+            if (holdings.Any())
+            {
+                holdingsGridView.DataSource = holdings;
+                holdingsGridView.Columns["Client"].Visible = false;
+                holdingsGridView.Columns["Master"].Visible = false;
+                holdingsBindingSource.DataSource = holdingsGridView.DataSource;
+            }
         }
     }
 }

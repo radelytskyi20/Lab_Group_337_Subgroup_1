@@ -9,7 +9,7 @@ namespace WinForms.Client.Services
         Task AddAsync(Library.Models.Client client);
         Task UpdateAsync(Library.Models.Client client);
         Task<IEnumerable<Library.Models.Client>> GetAllAsync();
-        Task DeletetAsync(int id);
+        Task DeleteAsync(int id);
 
     }
     public class ClientsManager : IClientsManager
@@ -32,7 +32,7 @@ namespace WinForms.Client.Services
             IClientsManagerService clientsManagerService = new ClientsManagerService(context);
             return await clientsManagerService.GetAllAsync();
         }
-        public async Task DeletetAsync(int acctNbr)
+        public async Task DeleteAsync(int acctNbr)
         {
             using var context = new ApplicationDbContext();
             IClientsManagerService clientsManagerService = new ClientsManagerService(context);

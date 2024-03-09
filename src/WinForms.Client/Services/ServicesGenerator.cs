@@ -2,7 +2,7 @@
 {
     public class ServicesGenerator
     {
-        public IClientsManager CreateClientManager() => new ClientsManager();
+        public IClientsManager CreateClientsManager() => new ClientsManager();
         public IHoldingsManager CreateHoldingsManager() => new HoldingsManager();
         public IMastersManager CreateMastersManager() => new MastersManager();
     }

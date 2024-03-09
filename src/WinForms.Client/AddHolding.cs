@@ -21,7 +21,7 @@ namespace WinForms.Client
         {
             var serviceGenerator = new ServicesGenerator();
             _holdingsManager = serviceGenerator.CreateHoldingsManager();
-            _clientsManager = serviceGenerator.CreateClientManager();
+            _clientsManager = serviceGenerator.CreateClientsManager();
             _mastersManager = serviceGenerator.CreateMastersManager();
             InitializeComponent();
         }
