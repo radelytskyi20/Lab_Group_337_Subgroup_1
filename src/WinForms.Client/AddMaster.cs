@@ -1,0 +1,193 @@
+﻿using Library.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using WinForms.Client.Services;
+
+namespace WinForms.Client
+{
+    public partial class AddMaster : Form
+    {
+        private readonly IMastersManager _mastersManager;
+
+        public AddMaster()
+        {
+            var serviceGenerator = new ServicesGenerator();
+
+            _mastersManager = serviceGenerator.CreateMastersManager();
+            InitializeComponent();
+        }
+
+        private readonly string[] _exchange = new[]
+        {
+            "NYSE",
+            "NONE",
+            "TSE",
+            "ASE"
+        };
+        private readonly int[] _safety = new[] { 1, 2, 3, 4, 5 };
+        private readonly string[] _rating = { "A", "B", "C", "D", "E" };
+        private readonly int[] _bank = { 0, 1, 2, 3 };
+        private readonly int[] _outlook = { 1, 2, 3, 4, 5 };
+        private readonly string[] _rcmndation = new[]
+        {
+            "SELL",
+            "BUY",
+            "HOLD"
+        };
+        private readonly string[] _risk = new[]
+        {
+            "HIGH",
+            "LOW",
+            "MED"
+        };
+
+        private void AddMaster_Load(object sender, EventArgs e)
+        {
+            comboBoxExchange.Items.AddRange(_exchange);
+            comboBoxSafety.Items.AddRange(_safety.Select(s => s.ToString()).ToArray());
+            comboBoxRating.Items.AddRange(_rating);
+            comboBoxBank.Items.AddRange(_bank.Select(b => b.ToString()).ToArray());
+            comboBoxOutlook.Items.AddRange(_outlook.Select(o => o.ToString()).ToArray());
+            comboBoxRcmndation.Items.AddRange(_rcmndation);
+            comboBoxRisk.Items.AddRange(_risk);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxSymbol?.Text))
+            {
+                MessageBox.Show("Invalid symbol");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textBoxCoName?.Text))
+            {
+                MessageBox.Show("Invalid company name");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(comboBoxExchange?.SelectedItem?.ToString()))
+            {
+                MessageBox.Show("Invalid exchange");
+                return;
+            }
+
+            if (!decimal.TryParse(textBoxCurPrice?.Text, out decimal curPrice))
+            {
+                MessageBox.Show("Invalid current price");
+                return;
+            }
+
+            if (!decimal.TryParse(textBoxYrlHigh?.Text, out decimal yrlHigh))
+            {
+                MessageBox.Show("Invalid yearly high");
+                return;
+            }
+            if (!decimal.TryParse(textBoxYrlLow?.Text, out decimal yrlLow))
+            {
+                MessageBox.Show("Invalid yearly low");
+                return;
+            }
+
+            if (!decimal.TryParse(textBoxPeratio?.Text, out decimal peratio))
+            {
+                MessageBox.Show("Invalid PE ratio");
+                return;
+            }
+
+            if (!decimal.TryParse(textBoxBeta?.Text, out decimal beta))
+            {
+                MessageBox.Show("Invalid beta");
+                return;
+            }
+
+            if (!int.TryParse(textBoxProjgrth?.Text, out int projgrth))
+            {
+                MessageBox.Show("Invalid projected growth");
+                return;
+            }
+
+            if (!int.TryParse(textBoxIndustry?.Text, out int industry))
+            {
+                MessageBox.Show("Invalid industry");
+                return;
+            }
+
+            if (!int.TryParse(textBoxPricechg?.Text, out int pricechg))
+            {
+                MessageBox.Show("Invalid price change");
+                return;
+            }
+
+            if (!int.TryParse(comboBoxSafety?.SelectedItem?.ToString(), out int safety))
+            {
+                MessageBox.Show("Invalid safety");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(comboBoxRating?.SelectedItem?.ToString()))
+            {
+                MessageBox.Show("Invalid rating");
+                return;
+            }
+
+            if (!int.TryParse(comboBoxBank?.SelectedItem?.ToString(), out int bank))
+            {
+                MessageBox.Show("Invalid bank");
+                return;
+            }
+
+            if (!int.TryParse(comboBoxOutlook?.SelectedItem?.ToString(), out int outlook))
+            {
+                MessageBox.Show("Invalid outlook");
+                return;
+            }    
+
+            if (string.IsNullOrEmpty(comboBoxRcmndation?.SelectedItem?.ToString()))
+            {
+                MessageBox.Show("Invalid recommendation");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(comboBoxRisk?.SelectedItem?.ToString()))
+            {
+                MessageBox.Show("Invalid risk");
+                return;
+            }
+
+            var master = new Master
+            {
+                Symbol = textBoxSymbol.Text.ToUpper(),
+                CoName = textBoxCoName.Text.ToUpper(),
+                Exchange = comboBoxExchange.SelectedItem.ToString(),
+                CurPrice = curPrice,
+                YrlHigh = yrlHigh,
+                YrlLow = yrlLow,
+                PERatio = peratio,
+                Beta = beta,
+                ProjGrth = projgrth,
+                Industry = industry,
+                PriceChg = pricechg,
+                Safety = safety,
+                Rating = comboBoxRating.SelectedItem.ToString(),
+                Bank = bank,
+                Outlook = outlook,
+                Rcmndation = comboBoxRcmndation.SelectedItem.ToString(),
+                Risk = comboBoxRisk.SelectedItem.ToString()
+            };
+
+            _mastersManager.AddAsync(master);
+            MessageBox.Show("Master added successfully!");
+            Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e) => Close();
+    }
+}

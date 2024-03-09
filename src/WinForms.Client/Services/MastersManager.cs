@@ -7,6 +7,7 @@ namespace WinForms.Client.Services
     public interface IMastersManager
     {
         Task<IEnumerable<Master>> GetAllAsync();
+        Task AddAsync(Master master);
     }
 
     public class MastersManager : IMastersManager
@@ -16,6 +17,13 @@ namespace WinForms.Client.Services
             using var context = new ApplicationDbContext();
             IMastersManagerService mastersManagerService = new MastersManagerService(context);
             return await mastersManagerService.GetAllAsync();
+        }
+
+        public async Task AddAsync(Master master)
+        {
+            using var context = new ApplicationDbContext();
+            IMastersManagerService mastersManagerService = new MastersManagerService(context);
+            await mastersManagerService.AddAsync(master);
         }
     }
 }

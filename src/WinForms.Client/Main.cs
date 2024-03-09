@@ -11,12 +11,14 @@ namespace WinForms.Client
     {
         private readonly IClientsManager _clientManager;
         private readonly IHoldingsManager _holdingsManager;
+        private readonly IMastersManager _mastersManager;
         public Main()
         {
             var serviceGenerator = new ServicesGenerator();
 
             _holdingsManager = serviceGenerator.CreateHoldingsManager();
             _clientManager = serviceGenerator.CreateClientsManager();
+            _mastersManager = serviceGenerator.CreateMastersManager();
             InitializeComponent();
         }
 
@@ -69,6 +71,7 @@ namespace WinForms.Client
         {
             UpdateDataGridView(dataGridView, bindingSource);
             await UpdateHoldingsGridView();
+            await UpdateMastersGridView();
         }
         private async Task UpdateHoldingsGridView()
         {
@@ -81,26 +84,37 @@ namespace WinForms.Client
                 holdingsBindingSource.DataSource = holdingsGridView.DataSource;
             }
         }
-        private async Task UpdateForm()
+
+        private async Task UpdateMastersGridView()
+        {
+            if (clientsBindingSource.Current is Library.Models.Client client)
+            {
+                var holdings = await _holdingsManager.GetAllAsync(client.AcctNbr);
+                var masters = await _mastersManager.GetAllAsync();
+                masters = masters.Where(m => holdings.Any(h => h.Symbol == m.Symbol)).ToList();
+                mastersGridView.DataSource = masters;
+            }
+        }
+
+        private async Task UpdateClientsGridView()
         {
             var clients = await _clientManager.GetAllAsync();
             clientsGridView.DataSource = clients;
             clientsGridView.Columns["Holdings"].Visible = false;
             clientsBindingSource.DataSource = clientsGridView.DataSource;
+        }
 
-            if (!clients.Any()) return;
-
-            var holdings = await _holdingsManager.GetAllAsync(clients.ElementAt(clientsBindingSource.Position).AcctNbr);
-            holdingsGridView.DataSource = holdings;
-            holdingsGridView.Columns["Client"].Visible = false;
-            holdingsGridView.Columns["Master"].Visible = false;
-            holdingsBindingSource.DataSource = holdingsGridView.DataSource;
+        private async Task UpdateForm()
+        {
+            await UpdateClientsGridView();
+            await UpdateHoldingsGridView();
+            await UpdateMastersGridView();
         }
         private void UpdateDataGridView(DataGridView dataGridView, BindingSource bindingSource)
         {
             dataGridView.ClearSelection();
 
-            if (bindingSource.Position!= -1)
+            if (bindingSource.Position != -1)
                 dataGridView.Rows[bindingSource.Position].Selected = true;
         }
         private async void btnClinetsDelete_Click(object sender, EventArgs e)
@@ -160,8 +174,15 @@ namespace WinForms.Client
             {
                 await _holdingsManager.DeleteAsync(holding.Id);
                 MessageBox.Show("Holding deleted successfully!");
-                await UpdateHoldingsGridView();
+                await UpdateForm();
             }
+        }
+
+        private async void btnAddMaster_Click(object sender, EventArgs e)
+        {
+            var form = new AddMaster();
+            form.ShowDialog();
+            await UpdateForm();
         }
     }
 }

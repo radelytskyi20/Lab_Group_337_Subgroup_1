@@ -57,6 +57,13 @@
             btnHoldingsPrevious = new Button();
             btnHoldingsFirst = new Button();
             holdingsBindingSource = new BindingSource(components);
+            btnMastersLast = new Button();
+            btnMastersNext = new Button();
+            btnMastersPrevious = new Button();
+            btnMastersFirst = new Button();
+            btnDeleteMaster = new Button();
+            btnUpdateMaster = new Button();
+            btnAddMaster = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
@@ -304,11 +311,82 @@
             btnHoldingsFirst.UseVisualStyleBackColor = true;
             btnHoldingsFirst.Click += btnHoldingsFirst_Click;
             // 
+            // btnMastersLast
+            // 
+            btnMastersLast.Location = new Point(817, 922);
+            btnMastersLast.Name = "btnMastersLast";
+            btnMastersLast.Size = new Size(94, 29);
+            btnMastersLast.TabIndex = 27;
+            btnMastersLast.Text = "Last";
+            btnMastersLast.UseVisualStyleBackColor = true;
+            // 
+            // btnMastersNext
+            // 
+            btnMastersNext.Location = new Point(717, 922);
+            btnMastersNext.Name = "btnMastersNext";
+            btnMastersNext.Size = new Size(94, 29);
+            btnMastersNext.TabIndex = 26;
+            btnMastersNext.Text = "Next";
+            btnMastersNext.UseVisualStyleBackColor = true;
+            // 
+            // btnMastersPrevious
+            // 
+            btnMastersPrevious.Location = new Point(617, 922);
+            btnMastersPrevious.Name = "btnMastersPrevious";
+            btnMastersPrevious.Size = new Size(94, 29);
+            btnMastersPrevious.TabIndex = 25;
+            btnMastersPrevious.Text = "Previous";
+            btnMastersPrevious.UseVisualStyleBackColor = true;
+            // 
+            // btnMastersFirst
+            // 
+            btnMastersFirst.Location = new Point(517, 922);
+            btnMastersFirst.Name = "btnMastersFirst";
+            btnMastersFirst.Size = new Size(94, 29);
+            btnMastersFirst.TabIndex = 24;
+            btnMastersFirst.Text = "First";
+            btnMastersFirst.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteMaster
+            // 
+            btnDeleteMaster.Location = new Point(210, 922);
+            btnDeleteMaster.Name = "btnDeleteMaster";
+            btnDeleteMaster.Size = new Size(94, 29);
+            btnDeleteMaster.TabIndex = 23;
+            btnDeleteMaster.Text = "Delete";
+            btnDeleteMaster.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdateMaster
+            // 
+            btnUpdateMaster.Location = new Point(111, 922);
+            btnUpdateMaster.Name = "btnUpdateMaster";
+            btnUpdateMaster.Size = new Size(94, 29);
+            btnUpdateMaster.TabIndex = 22;
+            btnUpdateMaster.Text = "Update";
+            btnUpdateMaster.UseVisualStyleBackColor = true;
+            // 
+            // btnAddMaster
+            // 
+            btnAddMaster.Location = new Point(11, 922);
+            btnAddMaster.Name = "btnAddMaster";
+            btnAddMaster.Size = new Size(94, 29);
+            btnAddMaster.TabIndex = 21;
+            btnAddMaster.Text = "Add";
+            btnAddMaster.UseVisualStyleBackColor = true;
+            btnAddMaster.Click += btnAddMaster_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1042);
+            Controls.Add(btnMastersLast);
+            Controls.Add(btnMastersNext);
+            Controls.Add(btnMastersPrevious);
+            Controls.Add(btnMastersFirst);
+            Controls.Add(btnDeleteMaster);
+            Controls.Add(btnUpdateMaster);
+            Controls.Add(btnAddMaster);
             Controls.Add(btnHoldingsLast);
             Controls.Add(btnHoldingsNext);
             Controls.Add(btnHoldingsPrevious);
@@ -376,5 +454,12 @@
         private Button btnHoldingsPrevious;
         private Button btnHoldingsFirst;
         private BindingSource holdingsBindingSource;
+        private Button btnMastersLast;
+        private Button btnMastersNext;
+        private Button btnMastersPrevious;
+        private Button btnMastersFirst;
+        private Button btnDeleteMaster;
+        private Button btnUpdateMaster;
+        private Button btnAddMaster;
     }
 }
