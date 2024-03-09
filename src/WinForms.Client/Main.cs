@@ -75,6 +75,7 @@ namespace WinForms.Client
                 holdingsGridView.DataSource = holdings;
                 holdingsGridView.Columns["Client"].Visible = false;
                 holdingsGridView.Columns["Master"].Visible = false;
+                holdingsBindingSource.DataSource = holdingsGridView.DataSource;
             }
         }
         private async Task UpdateForm()
@@ -104,6 +105,30 @@ namespace WinForms.Client
             var form = new AddHolding();
             form.ShowDialog();
             await UpdateForm();
+        }
+
+        private void btnHoldingsFirst_Click(object sender, EventArgs e)
+        {
+            holdingsBindingSource.MoveFirst();
+            UpdateDataGridView(holdingsGridView, holdingsBindingSource);
+        }
+
+        private void btnHoldingsPrevious_Click(object sender, EventArgs e)
+        {
+            holdingsBindingSource.MovePrevious();
+            UpdateDataGridView(holdingsGridView, holdingsBindingSource);
+        }
+
+        private void btnHoldingsNext_Click(object sender, EventArgs e)
+        {
+            holdingsBindingSource.MoveNext();
+            UpdateDataGridView(holdingsGridView, holdingsBindingSource);
+        }
+
+        private void btnHoldingsLast_Click(object sender, EventArgs e)
+        {
+            holdingsBindingSource.MoveLast();
+            UpdateDataGridView(holdingsGridView, holdingsBindingSource);
         }
     }
 }

@@ -52,11 +52,17 @@
             btnAddHolding = new Button();
             btnUpdateHolding = new Button();
             btnDeleteHolding = new Button();
+            btnHoldingsLast = new Button();
+            btnHoldingsNext = new Button();
+            btnHoldingsPrevious = new Button();
+            btnHoldingsFirst = new Button();
+            holdingsBindingSource = new BindingSource(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)holdingsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mastersGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -212,7 +218,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 724);
+            label3.Location = new Point(11, 664);
             label3.Name = "label3";
             label3.Size = new Size(60, 20);
             label3.TabIndex = 12;
@@ -221,7 +227,7 @@
             // mastersGridView
             // 
             mastersGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mastersGridView.Location = new Point(11, 747);
+            mastersGridView.Location = new Point(11, 687);
             mastersGridView.Name = "mastersGridView";
             mastersGridView.RowHeadersWidth = 51;
             mastersGridView.RowTemplate.Height = 29;
@@ -256,11 +262,55 @@
             btnDeleteHolding.Text = "Delete";
             btnDeleteHolding.UseVisualStyleBackColor = true;
             // 
+            // btnHoldingsLast
+            // 
+            btnHoldingsLast.Location = new Point(818, 617);
+            btnHoldingsLast.Name = "btnHoldingsLast";
+            btnHoldingsLast.Size = new Size(94, 29);
+            btnHoldingsLast.TabIndex = 20;
+            btnHoldingsLast.Text = "Last";
+            btnHoldingsLast.UseVisualStyleBackColor = true;
+            btnHoldingsLast.Click += btnHoldingsLast_Click;
+            // 
+            // btnHoldingsNext
+            // 
+            btnHoldingsNext.Location = new Point(718, 617);
+            btnHoldingsNext.Name = "btnHoldingsNext";
+            btnHoldingsNext.Size = new Size(94, 29);
+            btnHoldingsNext.TabIndex = 19;
+            btnHoldingsNext.Text = "Next";
+            btnHoldingsNext.UseVisualStyleBackColor = true;
+            btnHoldingsNext.Click += btnHoldingsNext_Click;
+            // 
+            // btnHoldingsPrevious
+            // 
+            btnHoldingsPrevious.Location = new Point(618, 617);
+            btnHoldingsPrevious.Name = "btnHoldingsPrevious";
+            btnHoldingsPrevious.Size = new Size(94, 29);
+            btnHoldingsPrevious.TabIndex = 18;
+            btnHoldingsPrevious.Text = "Previous";
+            btnHoldingsPrevious.UseVisualStyleBackColor = true;
+            btnHoldingsPrevious.Click += btnHoldingsPrevious_Click;
+            // 
+            // btnHoldingsFirst
+            // 
+            btnHoldingsFirst.Location = new Point(518, 617);
+            btnHoldingsFirst.Name = "btnHoldingsFirst";
+            btnHoldingsFirst.Size = new Size(94, 29);
+            btnHoldingsFirst.TabIndex = 17;
+            btnHoldingsFirst.Text = "First";
+            btnHoldingsFirst.UseVisualStyleBackColor = true;
+            btnHoldingsFirst.Click += btnHoldingsFirst_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1042);
+            Controls.Add(btnHoldingsLast);
+            Controls.Add(btnHoldingsNext);
+            Controls.Add(btnHoldingsPrevious);
+            Controls.Add(btnHoldingsFirst);
             Controls.Add(btnDeleteHolding);
             Controls.Add(btnUpdateHolding);
             Controls.Add(btnAddHolding);
@@ -289,6 +339,7 @@
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)holdingsGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)mastersGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -318,5 +369,10 @@
         private Button btnAddHolding;
         private Button btnUpdateHolding;
         private Button btnDeleteHolding;
+        private Button btnHoldingsLast;
+        private Button btnHoldingsNext;
+        private Button btnHoldingsPrevious;
+        private Button btnHoldingsFirst;
+        private BindingSource holdingsBindingSource;
     }
 }
