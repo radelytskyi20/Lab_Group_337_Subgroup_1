@@ -224,5 +224,23 @@ namespace WinForms.Client
                 await UpdateForm();
             }
         }
+
+        private async void btnDeleteMaster_Click(object sender, EventArgs e)
+        {
+            if (mastersBindingSource.Current is Master master)
+            {
+                await _mastersManager.DeleteAsync(master.Symbol);
+                MessageBox.Show("Master deleted successfully!");
+                await UpdateForm();
+            }
+        }
+
+        private async void btnAllMasters_Click(object sender, EventArgs e)
+        {
+            var masters = await _mastersManager.GetAllAsync();
+            mastersGridView.DataSource = masters;
+            mastersGridView.Columns["Holdings"].Visible = false;
+            mastersBindingSource.DataSource = mastersGridView.DataSource;
+        }
     }
 }

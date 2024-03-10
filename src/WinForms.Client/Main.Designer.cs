@@ -362,6 +362,7 @@
             btnDeleteMaster.TabIndex = 23;
             btnDeleteMaster.Text = "Delete";
             btnDeleteMaster.UseVisualStyleBackColor = true;
+            btnDeleteMaster.Click += btnDeleteMaster_Click;
             // 
             // btnUpdateMaster
             // 
@@ -391,6 +392,7 @@
             btnAllMasters.TabIndex = 28;
             btnAllMasters.Text = "All";
             btnAllMasters.UseVisualStyleBackColor = true;
+            btnAllMasters.Click += btnAllMasters_Click;
             // 
             // Main
             // 

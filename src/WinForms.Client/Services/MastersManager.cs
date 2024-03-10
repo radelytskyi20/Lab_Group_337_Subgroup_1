@@ -9,6 +9,7 @@ namespace WinForms.Client.Services
         Task<IEnumerable<Master>> GetAllAsync();
         Task AddAsync(Master master);
         Task UpdateAsync(Master master);
+        Task DeleteAsync(string symbol);
     }
 
     public class MastersManager : IMastersManager
@@ -32,6 +33,13 @@ namespace WinForms.Client.Services
             using var context = new ApplicationDbContext();
             IMastersManagerService mastersManagerService = new MastersManagerService(context);
             await mastersManagerService.UpdateAsync(master);
+        }
+
+        public async Task DeleteAsync(string symbol)
+        {
+            using var context = new ApplicationDbContext();
+            IMastersManagerService mastersManagerService = new MastersManagerService(context);
+            await mastersManagerService.DeleteAsync(symbol);
         }
     }
 }
