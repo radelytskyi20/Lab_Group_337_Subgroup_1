@@ -39,19 +39,33 @@ namespace WinForms.Client
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var acctNbr = int.Parse(comboBoxAcctNbr.Text);
-            var symbol = comboBoxSymbol.Text;
-            var shares = int.Parse(textBoxShares.Text);
-            var purPrice = decimal.Parse(textBoxPurPrice.Text);
-            var purDate = dateTimePicker1.Value;
-
+            if (!int.TryParse(comboBoxAcctNbr?.SelectedItem?.ToString(), out int acctNbr))
+            {
+                MessageBox.Show("Invalid account number");
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBoxSymbol?.SelectedItem?.ToString()))
+            {
+                MessageBox.Show("Invalid symbol");
+                return;
+            }
+            if (!int.TryParse(textBoxShares?.Text, out int shares))
+            {
+                MessageBox.Show("Invalid shares");
+                return;
+            }
+            if (!decimal.TryParse(textBoxPurPrice?.Text, out decimal purPrice))
+            {
+                MessageBox.Show("Invalid purchase price");
+                return;
+            }
             var holding = new Library.Models.Holding
             {
                 AcctNbr = acctNbr,
-                Symbol = symbol,
+                Symbol = comboBoxSymbol.SelectedItem.ToString()!,
                 Shares = shares,
                 PurPrice = purPrice,
-                PurDate = purDate
+                PurDate = dateTimePicker1.Value
             };
 
             _holdingsManager.AddAsync(holding);

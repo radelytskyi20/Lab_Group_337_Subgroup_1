@@ -48,26 +48,32 @@ namespace WinForms.Client
 
         private async void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(comboBoxAcctNbr.SelectedItem.ToString(), out int acctNbr))
+            if (!int.TryParse(comboBoxAcctNbr?.SelectedItem?.ToString(), out int acctNbr))
+            {
                 MessageBox.Show("Invalid account number");
-
-            var selectedSymbol = comboBoxSymbol.SelectedItem;
-            if (selectedSymbol == null)
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBoxSymbol?.SelectedItem?.ToString()))
+            {
                 MessageBox.Show("Invalid symbol");
-
-            string symbol = selectedSymbol?.ToString()!;
-
-            if (!int.TryParse(textBoxShares.Text, out int shares))
+                return;
+            }
+            if (!int.TryParse(textBoxShares?.Text, out int shares))
+            {
                 MessageBox.Show("Invalid shares");
-
-            if (!decimal.TryParse(textBoxPurPrice.Text, out decimal purPrice))
+                return;
+            }
+            if (!decimal.TryParse(textBoxPurPrice?.Text, out decimal purPrice))
+            {
                 MessageBox.Show("Invalid purchase price");
+                return;
+            }
 
             var holdingToUpdate = new Holding
             {
                 Id = Holding.Id,
                 AcctNbr = acctNbr,
-                Symbol = symbol,
+                Symbol = comboBoxSymbol.SelectedItem.ToString()!,
                 Shares = shares,
                 PurPrice = purPrice,
                 PurDate = dateTimePicker1.Value

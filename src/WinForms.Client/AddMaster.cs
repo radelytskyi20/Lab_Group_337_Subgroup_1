@@ -36,14 +36,20 @@ namespace WinForms.Client
             comboBoxRisk.Items.AddRange(MasterData.Risk);
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
+            var masters = await _mastersManager.GetAllAsync();
+
             if (string.IsNullOrEmpty(textBoxSymbol?.Text))
             {
                 MessageBox.Show("Invalid symbol");
                 return;
             }
-
+            if (masters.Any(c => c?.Symbol == textBoxSymbol.Text.ToUpper()))
+            {
+                MessageBox.Show("Symbol already exists");
+                return;
+            }
             if (string.IsNullOrEmpty(textBoxCoName?.Text))
             {
                 MessageBox.Show("Invalid company name");
@@ -160,7 +166,7 @@ namespace WinForms.Client
                 Risk = comboBoxRisk.SelectedItem.ToString()
             };
 
-            _mastersManager.AddAsync(master);
+            await _mastersManager.AddAsync(master);
             MessageBox.Show("Master added successfully!");
             Close();
         }

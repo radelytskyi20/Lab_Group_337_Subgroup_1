@@ -39,19 +39,14 @@
             label5 = new Label();
             CityTextBox = new TextBox();
             label6 = new Label();
-            StateTextBox = new TextBox();
             label7 = new Label();
             ZipTextBox = new TextBox();
             label8 = new Label();
             PhoneTextBox = new TextBox();
-            label9 = new Label();
-            DateOpenTextBox = new TextBox();
             label10 = new Label();
             SsNumberTextBox = new TextBox();
             label11 = new Label();
-            BirthDateTextBox = new TextBox();
             label12 = new Label();
-            RiskLevelTextBox = new TextBox();
             label13 = new Label();
             OccupationTextBox = new TextBox();
             label14 = new Label();
@@ -60,6 +55,9 @@
             InterestsTextBox = new TextBox();
             AddClientFormButton = new Button();
             ExitAddClientFormButton = new Button();
+            comboBoxState = new ComboBox();
+            dateTimePickerBirthDate = new DateTimePicker();
+            comboBoxRiskLevel = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -151,13 +149,6 @@
             label6.TabIndex = 10;
             label6.Text = "State";
             // 
-            // StateTextBox
-            // 
-            StateTextBox.Location = new Point(337, 6);
-            StateTextBox.Name = "StateTextBox";
-            StateTextBox.Size = new Size(125, 27);
-            StateTextBox.TabIndex = 11;
-            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -190,26 +181,10 @@
             PhoneTextBox.Size = new Size(125, 27);
             PhoneTextBox.TabIndex = 15;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(288, 172);
-            label9.Name = "label9";
-            label9.Size = new Size(77, 20);
-            label9.TabIndex = 16;
-            label9.Text = "DateOpen";
-            // 
-            // DateOpenTextBox
-            // 
-            DateOpenTextBox.Location = new Point(371, 165);
-            DateOpenTextBox.Name = "DateOpenTextBox";
-            DateOpenTextBox.Size = new Size(125, 27);
-            DateOpenTextBox.TabIndex = 17;
-            // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(288, 212);
+            label10.Location = new Point(280, 208);
             label10.Name = "label10";
             label10.Size = new Size(77, 20);
             label10.TabIndex = 18;
@@ -217,7 +192,7 @@
             // 
             // SsNumberTextBox
             // 
-            SsNumberTextBox.Location = new Point(371, 209);
+            SsNumberTextBox.Location = new Point(363, 201);
             SsNumberTextBox.Name = "SsNumberTextBox";
             SsNumberTextBox.Size = new Size(125, 27);
             SsNumberTextBox.TabIndex = 19;
@@ -225,39 +200,25 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(544, 9);
+            label11.Location = new Point(516, 9);
             label11.Name = "label11";
             label11.Size = new Size(72, 20);
             label11.TabIndex = 20;
             label11.Text = "BirthDate";
             // 
-            // BirthDateTextBox
-            // 
-            BirthDateTextBox.Location = new Point(631, 6);
-            BirthDateTextBox.Name = "BirthDateTextBox";
-            BirthDateTextBox.Size = new Size(125, 27);
-            BirthDateTextBox.TabIndex = 21;
-            // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(544, 56);
+            label12.Location = new Point(516, 56);
             label12.Name = "label12";
             label12.Size = new Size(69, 20);
             label12.TabIndex = 22;
             label12.Text = "RiskLevel";
             // 
-            // RiskLevelTextBox
-            // 
-            RiskLevelTextBox.Location = new Point(631, 49);
-            RiskLevelTextBox.Name = "RiskLevelTextBox";
-            RiskLevelTextBox.Size = new Size(125, 27);
-            RiskLevelTextBox.TabIndex = 23;
-            // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(544, 98);
+            label13.Location = new Point(516, 98);
             label13.Name = "label13";
             label13.Size = new Size(85, 20);
             label13.TabIndex = 24;
@@ -265,7 +226,7 @@
             // 
             // OccupationTextBox
             // 
-            OccupationTextBox.Location = new Point(631, 95);
+            OccupationTextBox.Location = new Point(603, 95);
             OccupationTextBox.Name = "OccupationTextBox";
             OccupationTextBox.Size = new Size(125, 27);
             OccupationTextBox.TabIndex = 25;
@@ -273,7 +234,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(544, 153);
+            label14.Location = new Point(516, 153);
             label14.Name = "label14";
             label14.Size = new Size(78, 20);
             label14.TabIndex = 26;
@@ -281,7 +242,7 @@
             // 
             // ObjectivesTextBox
             // 
-            ObjectivesTextBox.Location = new Point(631, 150);
+            ObjectivesTextBox.Location = new Point(603, 150);
             ObjectivesTextBox.Name = "ObjectivesTextBox";
             ObjectivesTextBox.Size = new Size(125, 27);
             ObjectivesTextBox.TabIndex = 27;
@@ -289,7 +250,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(544, 208);
+            label15.Location = new Point(516, 208);
             label15.Name = "label15";
             label15.Size = new Size(64, 20);
             label15.TabIndex = 28;
@@ -297,7 +258,7 @@
             // 
             // InterestsTextBox
             // 
-            InterestsTextBox.Location = new Point(631, 208);
+            InterestsTextBox.Location = new Point(603, 208);
             InterestsTextBox.Name = "InterestsTextBox";
             InterestsTextBox.Size = new Size(125, 27);
             InterestsTextBox.TabIndex = 29;
@@ -306,7 +267,7 @@
             // 
             AddClientFormButton.Location = new Point(12, 285);
             AddClientFormButton.Name = "AddClientFormButton";
-            AddClientFormButton.Size = new Size(776, 31);
+            AddClientFormButton.Size = new Size(848, 31);
             AddClientFormButton.TabIndex = 30;
             AddClientFormButton.Text = "Add";
             AddClientFormButton.UseVisualStyleBackColor = true;
@@ -316,17 +277,43 @@
             // 
             ExitAddClientFormButton.Location = new Point(12, 322);
             ExitAddClientFormButton.Name = "ExitAddClientFormButton";
-            ExitAddClientFormButton.Size = new Size(776, 31);
+            ExitAddClientFormButton.Size = new Size(848, 31);
             ExitAddClientFormButton.TabIndex = 31;
             ExitAddClientFormButton.Text = "Exit";
             ExitAddClientFormButton.UseVisualStyleBackColor = true;
             ExitAddClientFormButton.Click += ExitAddClientFormButton_Click;
             // 
+            // comboBoxState
+            // 
+            comboBoxState.FormattingEnabled = true;
+            comboBoxState.Location = new Point(337, 6);
+            comboBoxState.Name = "comboBoxState";
+            comboBoxState.Size = new Size(151, 28);
+            comboBoxState.TabIndex = 32;
+            // 
+            // dateTimePickerBirthDate
+            // 
+            dateTimePickerBirthDate.Location = new Point(594, 9);
+            dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+            dateTimePickerBirthDate.Size = new Size(266, 27);
+            dateTimePickerBirthDate.TabIndex = 34;
+            // 
+            // comboBoxRiskLevel
+            // 
+            comboBoxRiskLevel.FormattingEnabled = true;
+            comboBoxRiskLevel.Location = new Point(591, 52);
+            comboBoxRiskLevel.Name = "comboBoxRiskLevel";
+            comboBoxRiskLevel.Size = new Size(151, 28);
+            comboBoxRiskLevel.TabIndex = 35;
+            // 
             // AddClient
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 366);
+            ClientSize = new Size(869, 366);
+            Controls.Add(comboBoxRiskLevel);
+            Controls.Add(dateTimePickerBirthDate);
+            Controls.Add(comboBoxState);
             Controls.Add(ExitAddClientFormButton);
             Controls.Add(AddClientFormButton);
             Controls.Add(InterestsTextBox);
@@ -335,19 +322,14 @@
             Controls.Add(label14);
             Controls.Add(OccupationTextBox);
             Controls.Add(label13);
-            Controls.Add(RiskLevelTextBox);
             Controls.Add(label12);
-            Controls.Add(BirthDateTextBox);
             Controls.Add(label11);
             Controls.Add(SsNumberTextBox);
             Controls.Add(label10);
-            Controls.Add(DateOpenTextBox);
-            Controls.Add(label9);
             Controls.Add(PhoneTextBox);
             Controls.Add(label8);
             Controls.Add(ZipTextBox);
             Controls.Add(label7);
-            Controls.Add(StateTextBox);
             Controls.Add(label6);
             Controls.Add(CityTextBox);
             Controls.Add(label5);
@@ -361,6 +343,7 @@
             Controls.Add(label1);
             Name = "AddClient";
             Text = "AddClient";
+            Load += AddClient_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -378,19 +361,14 @@
         private Label label5;
         private TextBox CityTextBox;
         private Label label6;
-        private TextBox StateTextBox;
         private Label label7;
         private TextBox ZipTextBox;
         private Label label8;
         private TextBox PhoneTextBox;
-        private Label label9;
-        private TextBox DateOpenTextBox;
         private Label label10;
         private TextBox SsNumberTextBox;
         private Label label11;
-        private TextBox BirthDateTextBox;
         private Label label12;
-        private TextBox RiskLevelTextBox;
         private Label label13;
         private TextBox OccupationTextBox;
         private Label label14;
@@ -399,5 +377,9 @@
         private TextBox InterestsTextBox;
         private Button AddClientFormButton;
         private Button ExitAddClientFormButton;
+        private ComboBox comboBoxState;
+        private DateTimePicker dateTimePickerBirthDate;
+        private ComboBox comboBoxRiskLevel;
+        private DateTimePicker dateTimePicker1;
     }
 }
