@@ -1,17 +1,9 @@
-﻿using Library.Data;
-using Library.Models;
+﻿using Library.Models;
 using Library.Services;
+using WinForms.Client.Interfaces;
 
-namespace WinForms.Client.Services
+namespace WinForms.Client.Services.Thick
 {
-    public interface IHoldingsManager
-    {
-        Task AddAsync(Holding holding);
-        Task<IEnumerable<Holding>> GetAllAsync(int acctNbr);
-        Task UpdateAsync(Holding holding);
-        Task<IEnumerable<Holding>> GetAllAsync();
-        Task DeleteAsync(Guid id);
-    }
     public class HoldingsManager : IHoldingsManager
     {
         private readonly IHoldingsManagerService _holdingsManagerService;

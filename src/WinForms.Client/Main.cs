@@ -1,9 +1,5 @@
-using Library.Data;
 using Library.Models;
-using Library.Services;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using System.Windows.Forms;
-using WinForms.Client.Services;
+using WinForms.Client.Interfaces;
 
 namespace WinForms.Client
 {

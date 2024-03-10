@@ -1,17 +1,9 @@
-﻿using Library.Data;
-using Library.Models;
+﻿using Library.Models;
 using Library.Services;
+using WinForms.Client.Interfaces;
 
-namespace WinForms.Client.Services
+namespace WinForms.Client.Services.Thick
 {
-    public interface IMastersManager
-    {
-        Task<IEnumerable<Master>> GetAllAsync();
-        Task AddAsync(Master master);
-        Task UpdateAsync(Master master);
-        Task DeleteAsync(string symbol);
-    }
-
     public class MastersManager : IMastersManager
     {
         private readonly IMastersManagerService _mastersManagerService;

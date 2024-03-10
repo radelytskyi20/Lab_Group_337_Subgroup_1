@@ -1,17 +1,8 @@
-﻿using Library.Data;
-using Library.Models;
-using Library.Services;
+﻿using Library.Services;
+using WinForms.Client.Interfaces;
 
-namespace WinForms.Client.Services
+namespace WinForms.Client.Services.Thick
 {
-    public interface IClientsManager
-    {
-        Task AddAsync(Library.Models.Client client);
-        Task UpdateAsync(Library.Models.Client client);
-        Task<IEnumerable<Library.Models.Client>> GetAllAsync();
-        Task DeleteAsync(int id);
-
-    }
     public class ClientsManager : IClientsManager
     {
         private readonly IClientsManagerService _clientsManagerService;

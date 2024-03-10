@@ -3,7 +3,8 @@ using Library.Data;
 using Library.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using WinForms.Client.Services;
+using WinForms.Client.Interfaces;
+using WinForms.Client.Services.Thick;
 
 namespace WinForms.Client
 {

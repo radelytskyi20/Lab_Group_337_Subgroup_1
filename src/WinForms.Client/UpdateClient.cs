@@ -1,18 +1,5 @@
 ﻿using Library.Constants;
-using Library.Models;
-using Library.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using WinForms.Client.Services;
+using WinForms.Client.Interfaces;
 
 namespace WinForms.Client
 {
