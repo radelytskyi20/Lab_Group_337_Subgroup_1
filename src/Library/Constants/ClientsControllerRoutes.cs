@@ -1,4 +1,4 @@
-﻿namespace Api.Constants
+﻿namespace Library.Constants
 {
     public static class ClientsControllerRoutes
     {
