@@ -380,6 +380,5 @@
         private ComboBox comboBoxState;
         private DateTimePicker dateTimePickerBirthDate;
         private ComboBox comboBoxRiskLevel;
-        private DateTimePicker dateTimePicker1;
     }
 }

@@ -6,13 +6,7 @@ namespace Library.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext() { }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite($"Data Source={ConnectionStrings.Default}");
-            base.OnConfiguring(optionsBuilder);
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

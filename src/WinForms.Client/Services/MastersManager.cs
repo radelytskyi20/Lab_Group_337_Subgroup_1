@@ -14,32 +14,18 @@ namespace WinForms.Client.Services
 
     public class MastersManager : IMastersManager
     {
-        public async Task<IEnumerable<Master>> GetAllAsync()
+        private readonly IMastersManagerService _mastersManagerService;
+        public MastersManager(IMastersManagerService mastersManagerService)
         {
-            using var context = new ApplicationDbContext();
-            IMastersManagerService mastersManagerService = new MastersManagerService(context);
-            return await mastersManagerService.GetAllAsync();
+            _mastersManagerService = mastersManagerService;
         }
 
-        public async Task AddAsync(Master master)
-        {
-            using var context = new ApplicationDbContext();
-            IMastersManagerService mastersManagerService = new MastersManagerService(context);
-            await mastersManagerService.AddAsync(master);
-        }
+        public async Task<IEnumerable<Master>> GetAllAsync() => await _mastersManagerService.GetAllAsync();
 
-        public async Task UpdateAsync(Master master)
-        {
-            using var context = new ApplicationDbContext();
-            IMastersManagerService mastersManagerService = new MastersManagerService(context);
-            await mastersManagerService.UpdateAsync(master);
-        }
+        public async Task AddAsync(Master master) => await _mastersManagerService.AddAsync(master);
 
-        public async Task DeleteAsync(string symbol)
-        {
-            using var context = new ApplicationDbContext();
-            IMastersManagerService mastersManagerService = new MastersManagerService(context);
-            await mastersManagerService.DeleteAsync(symbol);
-        }
+        public async Task UpdateAsync(Master master) => await _mastersManagerService.UpdateAsync(master);
+
+        public async Task DeleteAsync(string symbol) => await _mastersManagerService.DeleteAsync(symbol);
     }
 }

@@ -18,12 +18,10 @@ namespace WinForms.Client
         private readonly IMastersManager _mastersManager;
 
         private Master Master { get; set; }
-        public UpdateMaster(Master master)
+        public UpdateMaster(Master master, IMastersManager mastersManager)
         {
-            var servicesGenerator = new ServicesGenerator();
-
             Master = master;
-            _mastersManager = servicesGenerator.CreateMastersManager();
+            _mastersManager = mastersManager;
             InitializeComponent();
         }
 

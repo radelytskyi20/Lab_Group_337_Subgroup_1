@@ -12,13 +12,11 @@ namespace WinForms.Client
         private readonly IClientsManager _clientManager;
         private readonly IHoldingsManager _holdingsManager;
         private readonly IMastersManager _mastersManager;
-        public Main()
+        public Main(IClientsManager clientsManager, IHoldingsManager holdingsManager, IMastersManager mastersManager)
         {
-            var serviceGenerator = new ServicesGenerator();
-
-            _holdingsManager = serviceGenerator.CreateHoldingsManager();
-            _clientManager = serviceGenerator.CreateClientsManager();
-            _mastersManager = serviceGenerator.CreateMastersManager();
+            _clientManager = clientsManager;
+            _holdingsManager = holdingsManager;
+            _mastersManager = mastersManager;
             InitializeComponent();
         }
 
@@ -26,7 +24,7 @@ namespace WinForms.Client
 
         private async void AddClientButton_Click(object sender, EventArgs e)
         {
-            var form = new AddClient();
+            var form = new AddClient(_clientManager);
             form.ShowDialog();
             await UpdateForm();
         }
@@ -66,7 +64,7 @@ namespace WinForms.Client
         {
             if (clientsBindingSource.Current is Library.Models.Client client)
             {
-                var form = new UpdateClient(client);
+                var form = new UpdateClient(client, _clientManager);
                 form.ShowDialog();
                 await UpdateForm();
             }
@@ -135,7 +133,7 @@ namespace WinForms.Client
 
         private async void btnAddHolding_Click(object sender, EventArgs e)
         {
-            var form = new AddHolding();
+            var form = new AddHolding(_holdingsManager, _clientManager, _mastersManager);
             form.ShowDialog();
             await UpdateForm();
         }
@@ -168,7 +166,7 @@ namespace WinForms.Client
         {
             if (holdingsBindingSource.Current is Holding holding)
             {
-                var form = new UpdateHolding(holding);
+                var form = new UpdateHolding(holding, _clientManager, _holdingsManager, _mastersManager);
                 form.ShowDialog();
                 await UpdateForm();
             }
@@ -186,7 +184,7 @@ namespace WinForms.Client
 
         private async void btnAddMaster_Click(object sender, EventArgs e)
         {
-            var form = new AddMaster();
+            var form = new AddMaster(_mastersManager);
             form.ShowDialog();
             await UpdateForm();
         }
@@ -219,7 +217,7 @@ namespace WinForms.Client
         {
             if (mastersBindingSource.Current is Master master)
             {
-                var form = new UpdateMaster(master);
+                var form = new UpdateMaster(master, _mastersManager);
                 form.ShowDialog();
                 await UpdateForm();
             }

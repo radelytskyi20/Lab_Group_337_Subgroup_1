@@ -14,29 +14,15 @@ namespace WinForms.Client.Services
     }
     public class ClientsManager : IClientsManager
     {
-        public async Task AddAsync(Library.Models.Client client)
+        private readonly IClientsManagerService _clientsManagerService;
+        public ClientsManager(IClientsManagerService clientsManagerService)
         {
-            using var context = new ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            await clientsManagerService.AddAsync(client);
+            _clientsManagerService = clientsManagerService;
         }
-        public async Task UpdateAsync(Library.Models.Client client)
-        {
-            using var context = new Library.Data.ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            await clientsManagerService.UpdateAsync(client);
-        }
-        public async Task<IEnumerable<Library.Models.Client>> GetAllAsync()
-        {
-            using var context = new ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            return await clientsManagerService.GetAllAsync();
-        }
-        public async Task DeleteAsync(int acctNbr)
-        {
-            using var context = new ApplicationDbContext();
-            IClientsManagerService clientsManagerService = new ClientsManagerService(context);
-            await clientsManagerService.DeleteAsync(acctNbr);
-        }
+
+        public async Task AddAsync(Library.Models.Client client) => await _clientsManagerService.AddAsync(client);
+        public async Task UpdateAsync(Library.Models.Client client) => await _clientsManagerService.UpdateAsync(client);
+        public async Task<IEnumerable<Library.Models.Client>> GetAllAsync() => await _clientsManagerService.GetAllAsync();
+        public async Task DeleteAsync(int acctNbr) => await _clientsManagerService.DeleteAsync(acctNbr);
     }
 }

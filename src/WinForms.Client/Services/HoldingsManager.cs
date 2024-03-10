@@ -14,42 +14,26 @@ namespace WinForms.Client.Services
     }
     public class HoldingsManager : IHoldingsManager
     {
-        public Task AddAsync(Holding holding)
+        private readonly IHoldingsManagerService _holdingsManagerService;
+        public HoldingsManager(IHoldingsManagerService holdingsManagerService)
         {
-            using var context = new ApplicationDbContext();
-            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
-            return holdingsManagerService.AddAsync(holding);
+            _holdingsManagerService = holdingsManagerService;
         }
+
+        public async Task AddAsync(Holding holding) => await _holdingsManagerService.AddAsync(holding);
 
         public async Task<IEnumerable<Holding>> GetAllAsync(int acctNbr)
         {
-            using var context = new ApplicationDbContext();
-            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
-            var holdings = await holdingsManagerService.GetAllAsync();
+            var holdings = await _holdingsManagerService.GetAllAsync();
 
             return holdings.Where(h => h.AcctNbr == acctNbr)
                 .ToList();
         }
 
-        public async Task UpdateAsync(Holding holding)
-        {
-            using var context = new ApplicationDbContext();
-            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
-            await holdingsManagerService.UpdateAsync(holding);
-        }
+        public async Task UpdateAsync(Holding holding) => await _holdingsManagerService.UpdateAsync(holding);
 
-        public async Task DeleteAsync(Guid id)
-        {
-            using var context = new ApplicationDbContext();
-            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
-            await holdingsManagerService.DeleteAsync(id);
-        }
+        public async Task DeleteAsync(Guid id) => await _holdingsManagerService.DeleteAsync(id);
 
-        public async Task<IEnumerable<Holding>> GetAllAsync()
-        {
-            using var context = new ApplicationDbContext();
-            IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(context);
-            return await holdingsManagerService.GetAllAsync();
-        }
+        public async Task<IEnumerable<Holding>> GetAllAsync() => await _holdingsManagerService.GetAllAsync();
     }
 }

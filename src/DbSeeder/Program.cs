@@ -1,12 +1,26 @@
 ﻿using DbSeeder;
+using Library.Constants;
 using Library.Data;
 using Library.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-using var dbContext = new ApplicationDbContext();
-IClientsManagerService clientsManagerService = new ClientsManagerService(dbContext);
-IHoldingsManagerService holdingsManagerService = new HoldingsManagerService(dbContext);
-IMastersManagerService masterManagerService = new MastersManagerService(dbContext);
+var serviceProvoder = new ServiceCollection()
+    .AddDbContext<ApplicationDbContext>(options => options.UseSqlite($"Data Source={ConnectionStrings.Default}"))
+    .AddTransient<IClientsManagerService, ClientsManagerService>()
+    .AddTransient<IHoldingsManagerService, HoldingsManagerService>()
+    .AddTransient<IMastersManagerService, MastersManagerService>()
+    .BuildServiceProvider();
+
+IClientsManagerService clientsManagerService = serviceProvoder.GetService<IClientsManagerService>() ?? throw new Exception();
+IHoldingsManagerService holdingsManagerService = serviceProvoder.GetService<IHoldingsManagerService>() ?? throw new Exception();
+IMastersManagerService masterManagerService = serviceProvoder.GetService<IMastersManagerService>() ?? throw new Exception();
+
+ApplicationDbContext dbContext = serviceProvoder.GetService<ApplicationDbContext>() ?? throw new Exception();
+
+await dbContext.Database.EnsureDeletedAsync();
+await dbContext.Database.MigrateAsync();
 
 Console.WriteLine("Start seeding...");
 try
@@ -60,7 +74,7 @@ static string? LoadXmlResource(string resourceName)
     return xml;
 }
 
-public class ResourceNames
+public static class ResourceNames
 {
     public const string CLIENTS = "clients.xml";
     public const string HOLDINGS = "holdings.xml";

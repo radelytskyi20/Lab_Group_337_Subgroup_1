@@ -19,15 +19,12 @@ namespace WinForms.Client
         private readonly IMastersManager _mastersManager;
 
         public Holding Holding { get; set; }
-        public UpdateHolding(Holding holding)
+        public UpdateHolding(Holding holding, IClientsManager clientsManager, IHoldingsManager holdingsManager, IMastersManager mastersManager)
         {
-            var serviceGenerator = new ServicesGenerator();
-
             Holding = holding;
-
-            _clientsManager = serviceGenerator.CreateClientsManager();
-            _holdingsManager = serviceGenerator.CreateHoldingsManager();
-            _mastersManager = serviceGenerator.CreateMastersManager();
+            _clientsManager = clientsManager;
+            _holdingsManager = holdingsManager;
+            _mastersManager = mastersManager;
             InitializeComponent();
         }
 

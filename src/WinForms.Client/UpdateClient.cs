@@ -20,11 +20,9 @@ namespace WinForms.Client
     {
         private Library.Models.Client Client { get; set; }
         private readonly IClientsManager _clientManager;
-        public UpdateClient(Library.Models.Client client)
+        public UpdateClient(Library.Models.Client client, IClientsManager clientsManager)
         {
-            var serviceGenerator = new ServicesGenerator();
-
-            _clientManager = serviceGenerator.CreateClientsManager();
+            _clientManager = clientsManager;
             Client = client;
             InitializeComponent();
         }

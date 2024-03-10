@@ -13,16 +13,16 @@ namespace WinForms.Client
 {
     public partial class AddHolding : Form
     {
-        IHoldingsManager _holdingsManager;
-        IClientsManager _clientsManager;
-        IMastersManager _mastersManager;
+        private readonly IHoldingsManager _holdingsManager;
+        private readonly IClientsManager _clientsManager;
+        private readonly IMastersManager _mastersManager;
 
-        public AddHolding()
+        public AddHolding(IHoldingsManager holdingsManager, IClientsManager clientsManager, IMastersManager mastersManager)
         {
-            var serviceGenerator = new ServicesGenerator();
-            _holdingsManager = serviceGenerator.CreateHoldingsManager();
-            _clientsManager = serviceGenerator.CreateClientsManager();
-            _mastersManager = serviceGenerator.CreateMastersManager();
+            _holdingsManager = holdingsManager;
+            _clientsManager = clientsManager;
+            _mastersManager = mastersManager;
+
             InitializeComponent();
         }
 
