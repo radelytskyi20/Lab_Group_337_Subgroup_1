@@ -8,6 +8,7 @@ namespace WinForms.Client.Services
     {
         Task<IEnumerable<Master>> GetAllAsync();
         Task AddAsync(Master master);
+        Task UpdateAsync(Master master);
     }
 
     public class MastersManager : IMastersManager
@@ -24,6 +25,13 @@ namespace WinForms.Client.Services
             using var context = new ApplicationDbContext();
             IMastersManagerService mastersManagerService = new MastersManagerService(context);
             await mastersManagerService.AddAsync(master);
+        }
+
+        public async Task UpdateAsync(Master master)
+        {
+            using var context = new ApplicationDbContext();
+            IMastersManagerService mastersManagerService = new MastersManagerService(context);
+            await mastersManagerService.UpdateAsync(master);
         }
     }
 }

@@ -64,12 +64,15 @@
             btnDeleteMaster = new Button();
             btnUpdateMaster = new Button();
             btnAddMaster = new Button();
+            btnAllMasters = new Button();
+            mastersBindingSource = new BindingSource(components);
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)holdingsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mastersGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)mastersBindingSource).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -319,6 +322,7 @@
             btnMastersLast.TabIndex = 27;
             btnMastersLast.Text = "Last";
             btnMastersLast.UseVisualStyleBackColor = true;
+            btnMastersLast.Click += btnMastersLast_Click;
             // 
             // btnMastersNext
             // 
@@ -328,6 +332,7 @@
             btnMastersNext.TabIndex = 26;
             btnMastersNext.Text = "Next";
             btnMastersNext.UseVisualStyleBackColor = true;
+            btnMastersNext.Click += btnMastersNext_Click;
             // 
             // btnMastersPrevious
             // 
@@ -337,6 +342,7 @@
             btnMastersPrevious.TabIndex = 25;
             btnMastersPrevious.Text = "Previous";
             btnMastersPrevious.UseVisualStyleBackColor = true;
+            btnMastersPrevious.Click += btnMastersPrevious_Click;
             // 
             // btnMastersFirst
             // 
@@ -346,6 +352,7 @@
             btnMastersFirst.TabIndex = 24;
             btnMastersFirst.Text = "First";
             btnMastersFirst.UseVisualStyleBackColor = true;
+            btnMastersFirst.Click += btnMastersFirst_Click;
             // 
             // btnDeleteMaster
             // 
@@ -364,6 +371,7 @@
             btnUpdateMaster.TabIndex = 22;
             btnUpdateMaster.Text = "Update";
             btnUpdateMaster.UseVisualStyleBackColor = true;
+            btnUpdateMaster.Click += btnUpdateMaster_Click;
             // 
             // btnAddMaster
             // 
@@ -375,11 +383,21 @@
             btnAddMaster.UseVisualStyleBackColor = true;
             btnAddMaster.Click += btnAddMaster_Click;
             // 
+            // btnAllMasters
+            // 
+            btnAllMasters.Location = new Point(310, 922);
+            btnAllMasters.Name = "btnAllMasters";
+            btnAllMasters.Size = new Size(94, 29);
+            btnAllMasters.TabIndex = 28;
+            btnAllMasters.Text = "All";
+            btnAllMasters.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1042);
+            Controls.Add(btnAllMasters);
             Controls.Add(btnMastersLast);
             Controls.Add(btnMastersNext);
             Controls.Add(btnMastersPrevious);
@@ -420,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)holdingsGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)mastersGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)mastersBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -461,5 +480,7 @@
         private Button btnDeleteMaster;
         private Button btnUpdateMaster;
         private Button btnAddMaster;
+        private Button btnAllMasters;
+        private BindingSource mastersBindingSource;
     }
 }

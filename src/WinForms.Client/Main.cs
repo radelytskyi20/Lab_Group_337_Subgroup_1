@@ -35,6 +35,7 @@ namespace WinForms.Client
         {
             clientsBindingSource.MoveFirst();
             holdingsBindingSource.Clear();
+            mastersBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
@@ -42,6 +43,7 @@ namespace WinForms.Client
         {
             clientsBindingSource.MovePrevious();
             holdingsBindingSource.Clear();
+            mastersBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
@@ -49,6 +51,7 @@ namespace WinForms.Client
         {
             clientsBindingSource.MoveNext();
             holdingsBindingSource.Clear();
+            mastersBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
 
@@ -56,6 +59,7 @@ namespace WinForms.Client
         {
             clientsBindingSource.MoveLast();
             holdingsBindingSource.Clear();
+            mastersBindingSource.Clear();
             await UpdateAfterClientSelect(clientsGridView, clientsBindingSource);
         }
         private async void btnClientsUpdate_Click(object sender, EventArgs e)
@@ -93,6 +97,8 @@ namespace WinForms.Client
                 var masters = await _mastersManager.GetAllAsync();
                 masters = masters.Where(m => holdings.Any(h => h.Symbol == m.Symbol)).ToList();
                 mastersGridView.DataSource = masters;
+                mastersGridView.Columns["Holdings"].Visible = false;
+                mastersBindingSource.DataSource = mastersGridView.DataSource;
             }
         }
 
@@ -183,6 +189,40 @@ namespace WinForms.Client
             var form = new AddMaster();
             form.ShowDialog();
             await UpdateForm();
+        }
+
+        private void btnMastersFirst_Click(object sender, EventArgs e)
+        {
+            mastersBindingSource.MoveFirst();
+            UpdateDataGridView(mastersGridView, mastersBindingSource);
+        }
+
+        private void btnMastersPrevious_Click(object sender, EventArgs e)
+        {
+            mastersBindingSource.MovePrevious();
+            UpdateDataGridView(mastersGridView, mastersBindingSource);
+        }
+
+        private void btnMastersNext_Click(object sender, EventArgs e)
+        {
+            mastersBindingSource.MoveNext();
+            UpdateDataGridView(mastersGridView, mastersBindingSource);
+        }
+
+        private void btnMastersLast_Click(object sender, EventArgs e)
+        {
+            mastersBindingSource.MoveLast();
+            UpdateDataGridView(mastersGridView, mastersBindingSource);
+        }
+
+        private async void btnUpdateMaster_Click(object sender, EventArgs e)
+        {
+            if (mastersBindingSource.Current is Master master)
+            {
+                var form = new UpdateMaster(master);
+                form.ShowDialog();
+                await UpdateForm();
+            }
         }
     }
 }
