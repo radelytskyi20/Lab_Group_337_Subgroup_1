@@ -29,7 +29,7 @@ namespace WinForms.Client
                 comboBoxSymbol.Items.AddRange(masters.Select(m => (object)m.Symbol).ToArray());
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private async void btnAdd_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(comboBoxAcctNbr?.SelectedItem?.ToString(), out int acctNbr))
             {
@@ -53,6 +53,7 @@ namespace WinForms.Client
             }
             var holding = new Library.Models.Holding
             {
+                Id = Guid.NewGuid(),
                 AcctNbr = acctNbr,
                 Symbol = comboBoxSymbol.SelectedItem.ToString()!,
                 Shares = shares,
@@ -60,7 +61,7 @@ namespace WinForms.Client
                 PurDate = dateTimePicker1.Value
             };
 
-            _holdingsManager.AddAsync(holding);
+            await _holdingsManager.AddAsync(holding);
             MessageBox.Show("Holding added successfully!");
             Close();
         }

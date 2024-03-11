@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Library.Models
 {
@@ -22,6 +23,7 @@ namespace Library.Models
         public string? Objectives { get; set; }
         public string? Interests { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Holding> Holdings { get; set; } = new List<Holding>();
     }
 }

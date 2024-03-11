@@ -22,7 +22,7 @@ namespace Library.Services
             DbContext = dbContext;
             Table = dbContext.Masters;
         }
-        public async Task<Master?> GetOneAsync(string symbol) => await Table.FindAsync(symbol);
+        public async Task<Master?> GetOneAsync(string symbol) => await Table.FirstOrDefaultAsync(master => master.Symbol.Equals(symbol));
         public async Task<IEnumerable<Master>> GetAllAsync() => await Table.ToListAsync();
         public async Task AddAsync(Master master)
         {
@@ -36,10 +36,10 @@ namespace Library.Services
         }
         public async Task DeleteAsync(string symbol)
         {
-            var client = await GetOneAsync(symbol);
-            if (client is not null)
+            var master = await GetOneAsync(symbol);
+            if (master is not null)
             {
-                Table.Remove(client);
+                Table.Remove(master);
                 await DbContext.SaveChangesAsync();
             }
         }

@@ -23,7 +23,7 @@ namespace Library.Services
             Table = dbContext.Holdings;
         }
 
-        public async Task<Holding?> GetOneAsync(Guid id) => await Table.FindAsync(id);
+        public async Task<Holding?> GetOneAsync(Guid id) => await Table.FirstOrDefaultAsync(holding => holding.Id == id);
         public async Task<IEnumerable<Holding>> GetAllAsync() => await Table.ToListAsync();
         public async Task AddAsync(Holding holding)
         {
@@ -37,10 +37,10 @@ namespace Library.Services
         }
         public async Task DeleteAsync(Guid id)
         {
-            var client = await GetOneAsync(id);
-            if (client is not null)
+            var holding = await GetOneAsync(id);
+            if (holding is not null)
             {
-                Table.Remove(client);
+                Table.Remove(holding);
                 await DbContext.SaveChangesAsync();
             }
         }

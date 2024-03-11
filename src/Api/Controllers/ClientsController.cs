@@ -46,11 +46,18 @@ namespace Api.Controllers
             return Ok(JsonConvert.SerializeObject(clients));
         }
 
-        [HttpPost(ClientsControllerRoutes.Delete)]
+        [HttpDelete(ClientsControllerRoutes.Delete)]
         public async Task<IActionResult> Delete([FromQuery] int acctNbr)
         {
             await _clientsManagerService.DeleteAsync(acctNbr);
             return Ok("Client deleted");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOne([FromQuery] int acctNbr)
+        {
+            var client = await _clientsManagerService.GetOneAsync(acctNbr);
+            return Ok(JsonConvert.SerializeObject(client));
         }
     }
 }

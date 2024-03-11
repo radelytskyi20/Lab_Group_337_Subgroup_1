@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<IClientsManagerService, ClientsManagerService>();
+builder.Services.AddTransient<IHoldingsManagerService, HoldingsManagerService>();
+builder.Services.AddTransient<IMastersManagerService, MastersManagerService>(); 
 
 builder.Services.AddCors();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

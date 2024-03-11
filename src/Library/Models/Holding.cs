@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Library.Models
 {
@@ -20,7 +21,10 @@ namespace Library.Models
         public decimal PurPrice { get; set; }
         public DateTime PurDate { get; set; }
 
-        public virtual Client Client { get; set; } = null!;
-        public virtual Master Master { get; set; } = null!;
+        [JsonIgnore]
+        public virtual Client? Client { get; set; }
+        
+        [JsonIgnore]
+        public virtual Master? Master { get; set; }
     }
 }

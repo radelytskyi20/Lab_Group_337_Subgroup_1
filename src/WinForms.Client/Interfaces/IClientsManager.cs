@@ -5,7 +5,6 @@
         Task AddAsync(Library.Models.Client client);
         Task UpdateAsync(Library.Models.Client client);
         Task<IEnumerable<Library.Models.Client>> GetAllAsync();
-        Task DeleteAsync(int id);
-
+        Task DeleteAsync(int acctNbr);
     }
 }
