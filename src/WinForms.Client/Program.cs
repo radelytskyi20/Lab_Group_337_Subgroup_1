@@ -27,7 +27,7 @@ namespace WinForms.Client
                 //thick services
                 //.AddTransient<IClientsManager, ClientsManager>()
                 //.AddTransient<IHoldingsManager, HoldingsManager>()
-                .AddTransient<IMastersManager, MastersManager>()
+                //.AddTransient<IMastersManager, MastersManager>()
                 
                 //repositories
                 .AddTransient<IClientsManagerService, ClientsManagerService>()
@@ -42,6 +42,10 @@ namespace WinForms.Client
                 .AddTransient<IHoldingsManager, HoldingsManagerApi>(provider =>
                 {
                     return new HoldingsManagerApi(new HttpClient());
+                })
+                .AddTransient<IMastersManager, MastersManagerApi>(provider =>
+                {
+                    return new MastersManagerApi(new HttpClient());
                 })
                 .BuildServiceProvider();
 
