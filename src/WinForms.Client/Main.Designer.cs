@@ -108,13 +108,14 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(143, 26);
+            aboutToolStripMenuItem.Size = new Size(224, 26);
             aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // contextToolStripMenuItem
             // 
             contextToolStripMenuItem.Name = "contextToolStripMenuItem";
-            contextToolStripMenuItem.Size = new Size(143, 26);
+            contextToolStripMenuItem.Size = new Size(224, 26);
             contextToolStripMenuItem.Text = "Context";
             // 
             // clientsGridView

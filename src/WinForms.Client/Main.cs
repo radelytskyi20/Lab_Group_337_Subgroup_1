@@ -236,5 +236,12 @@ namespace WinForms.Client
             mastersGridView.Columns["Holdings"].Visible = false;
             mastersBindingSource.DataSource = mastersGridView.DataSource;
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) =>
+            MessageBox.Show(
+                "Yaroslav Radelytskyi\n" +
+                "Veronika Glotova\n" +
+                "Nastya Borzenko"
+                );
     }
 }
