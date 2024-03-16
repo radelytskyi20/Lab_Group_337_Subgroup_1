@@ -101,6 +101,22 @@ namespace WinForms.Client
             var clients = await _clientManager.GetAllAsync();
             clientsGridView.DataSource = clients;
             clientsGridView.Columns["Holdings"].Visible = false;
+            clientsGridView.Columns["AcctNbr"].HeaderText = "Номер акаунта";
+            clientsGridView.Columns["FirstName"].HeaderText = "Ім'я";
+            clientsGridView.Columns["LastName"].HeaderText = "Прізвище";
+            clientsGridView.Columns["Address"].HeaderText = "Адреса";
+            clientsGridView.Columns["City"].HeaderText = "Місто";
+            clientsGridView.Columns["State"].HeaderText = "Штат";
+            clientsGridView.Columns["Zip"].HeaderText = "Поштовий індекс";
+            clientsGridView.Columns["Phone"].HeaderText = "Телефон";
+            clientsGridView.Columns["DateOpen"].HeaderText = "Дата відкриття";
+            clientsGridView.Columns["SsNumber"].HeaderText = "Номер соціального страхування";
+            clientsGridView.Columns["BirthDate"].HeaderText = "Дата народження";
+            clientsGridView.Columns["RiskLevel"].HeaderText = "Рівень ризику";
+            clientsGridView.Columns["Occupation"].HeaderText = "Професія";
+            clientsGridView.Columns["Objectives"].HeaderText = "Цілі";
+            clientsGridView.Columns["Interests"].HeaderText = "Інтереси";
+
             clientsBindingSource.DataSource = clientsGridView.DataSource;
         }
 
