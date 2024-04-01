@@ -35,7 +35,6 @@
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             contextToolStripMenuItem = new ToolStripMenuItem();
-            clientsGridView = new DataGridView();
             AddClientButton = new Button();
             clientsBindingSource = new BindingSource(components);
             btnClientsFirst = new Button();
@@ -44,11 +43,9 @@
             btnClientsLast = new Button();
             btnClientsUpdate = new Button();
             btnClinetsDelete = new Button();
-            holdingsGridView = new DataGridView();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            mastersGridView = new DataGridView();
             btnAddHolding = new Button();
             btnUpdateHolding = new Button();
             btnDeleteHolding = new Button();
@@ -67,13 +64,22 @@
             btnAllMasters = new Button();
             mastersBindingSource = new BindingSource(components);
             toolTip1 = new ToolTip(components);
+            panel1 = new Panel();
+            clientsGridView = new DataGridView();
+            panel2 = new Panel();
+            holdingsGridView = new DataGridView();
+            panel3 = new Panel();
+            mastersGridView = new DataGridView();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)holdingsGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)mastersGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)mastersBindingSource).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)clientsGridView).BeginInit();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)holdingsGridView).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)mastersGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -83,7 +89,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(1664, 24);
+            menuStrip1.Size = new Size(1686, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -120,21 +126,9 @@
             contextToolStripMenuItem.Size = new Size(116, 22);
             contextToolStripMenuItem.Text = "Context";
             // 
-            // clientsGridView
-            // 
-            clientsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            clientsGridView.Location = new Point(10, 50);
-            clientsGridView.Margin = new Padding(3, 2, 3, 2);
-            clientsGridView.Name = "clientsGridView";
-            clientsGridView.RowHeadersWidth = 51;
-            clientsGridView.RowTemplate.Height = 29;
-            clientsGridView.Size = new Size(1643, 172);
-            clientsGridView.TabIndex = 1;
-            toolTip1.SetToolTip(clientsGridView, "Цей компонент відображає інформацію про клієнтів біржі з бази даних. Використовуйте цю таблицю для перегляду даних про клієнтів, їхні угоди та інші важливі деталі.");
-            // 
             // AddClientButton
             // 
-            AddClientButton.Location = new Point(10, 233);
+            AddClientButton.Location = new Point(9, 257);
             AddClientButton.Margin = new Padding(3, 2, 3, 2);
             AddClientButton.Name = "AddClientButton";
             AddClientButton.Size = new Size(82, 22);
@@ -146,7 +140,7 @@
             // 
             // btnClientsFirst
             // 
-            btnClientsFirst.Location = new Point(453, 233);
+            btnClientsFirst.Location = new Point(452, 257);
             btnClientsFirst.Margin = new Padding(3, 2, 3, 2);
             btnClientsFirst.Name = "btnClientsFirst";
             btnClientsFirst.Size = new Size(82, 22);
@@ -158,7 +152,7 @@
             // 
             // btnClientsPrevious
             // 
-            btnClientsPrevious.Location = new Point(541, 233);
+            btnClientsPrevious.Location = new Point(540, 257);
             btnClientsPrevious.Margin = new Padding(3, 2, 3, 2);
             btnClientsPrevious.Name = "btnClientsPrevious";
             btnClientsPrevious.Size = new Size(82, 22);
@@ -170,7 +164,7 @@
             // 
             // btnClientsNext
             // 
-            btnClientsNext.Location = new Point(628, 233);
+            btnClientsNext.Location = new Point(627, 257);
             btnClientsNext.Margin = new Padding(3, 2, 3, 2);
             btnClientsNext.Name = "btnClientsNext";
             btnClientsNext.Size = new Size(82, 22);
@@ -182,7 +176,7 @@
             // 
             // btnClientsLast
             // 
-            btnClientsLast.Location = new Point(716, 233);
+            btnClientsLast.Location = new Point(715, 257);
             btnClientsLast.Margin = new Padding(3, 2, 3, 2);
             btnClientsLast.Name = "btnClientsLast";
             btnClientsLast.Size = new Size(82, 22);
@@ -194,7 +188,7 @@
             // 
             // btnClientsUpdate
             // 
-            btnClientsUpdate.Location = new Point(97, 233);
+            btnClientsUpdate.Location = new Point(96, 257);
             btnClientsUpdate.Margin = new Padding(3, 2, 3, 2);
             btnClientsUpdate.Name = "btnClientsUpdate";
             btnClientsUpdate.Size = new Size(82, 22);
@@ -206,7 +200,7 @@
             // 
             // btnClinetsDelete
             // 
-            btnClinetsDelete.Location = new Point(185, 233);
+            btnClinetsDelete.Location = new Point(184, 257);
             btnClinetsDelete.Margin = new Padding(3, 2, 3, 2);
             btnClinetsDelete.Name = "btnClinetsDelete";
             btnClinetsDelete.Size = new Size(82, 22);
@@ -215,18 +209,6 @@
             toolTip1.SetToolTip(btnClinetsDelete, "Видалити клієнта");
             btnClinetsDelete.UseVisualStyleBackColor = true;
             btnClinetsDelete.Click += btnClinetsDelete_Click;
-            // 
-            // holdingsGridView
-            // 
-            holdingsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            holdingsGridView.Location = new Point(10, 286);
-            holdingsGridView.Margin = new Padding(3, 2, 3, 2);
-            holdingsGridView.Name = "holdingsGridView";
-            holdingsGridView.RowHeadersWidth = 51;
-            holdingsGridView.RowTemplate.Height = 29;
-            holdingsGridView.Size = new Size(1643, 172);
-            holdingsGridView.TabIndex = 9;
-            toolTip1.SetToolTip(holdingsGridView, "Цей компонент показує акції, які утримує клієнт. Він відображає інформацію про назву акції, кількість одиниць та інші важливі деталі.");
             // 
             // label1
             // 
@@ -240,7 +222,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(10, 269);
+            label2.Location = new Point(9, 323);
             label2.Name = "label2";
             label2.Size = new Size(55, 15);
             label2.TabIndex = 11;
@@ -249,27 +231,15 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 498);
+            label3.Location = new Point(9, 584);
             label3.Name = "label3";
             label3.Size = new Size(48, 15);
             label3.TabIndex = 12;
             label3.Text = "Masters";
             // 
-            // mastersGridView
-            // 
-            mastersGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            mastersGridView.Location = new Point(10, 515);
-            mastersGridView.Margin = new Padding(3, 2, 3, 2);
-            mastersGridView.Name = "mastersGridView";
-            mastersGridView.RowHeadersWidth = 51;
-            mastersGridView.RowTemplate.Height = 29;
-            mastersGridView.Size = new Size(1643, 172);
-            mastersGridView.TabIndex = 13;
-            toolTip1.SetToolTip(mastersGridView, "Цей компонент показує загальний перелік акцій, які доступні на біржі. Ви можете переглядати інформацію про різні компанії, їхні ціни, зміни та інші важливі деталі.");
-            // 
             // btnAddHolding
             // 
-            btnAddHolding.Location = new Point(10, 463);
+            btnAddHolding.Location = new Point(9, 548);
             btnAddHolding.Margin = new Padding(3, 2, 3, 2);
             btnAddHolding.Name = "btnAddHolding";
             btnAddHolding.Size = new Size(82, 22);
@@ -281,7 +251,7 @@
             // 
             // btnUpdateHolding
             // 
-            btnUpdateHolding.Location = new Point(98, 463);
+            btnUpdateHolding.Location = new Point(97, 548);
             btnUpdateHolding.Margin = new Padding(3, 2, 3, 2);
             btnUpdateHolding.Name = "btnUpdateHolding";
             btnUpdateHolding.Size = new Size(82, 22);
@@ -293,7 +263,7 @@
             // 
             // btnDeleteHolding
             // 
-            btnDeleteHolding.Location = new Point(185, 463);
+            btnDeleteHolding.Location = new Point(184, 548);
             btnDeleteHolding.Margin = new Padding(3, 2, 3, 2);
             btnDeleteHolding.Name = "btnDeleteHolding";
             btnDeleteHolding.Size = new Size(82, 22);
@@ -305,7 +275,7 @@
             // 
             // btnHoldingsLast
             // 
-            btnHoldingsLast.Location = new Point(716, 463);
+            btnHoldingsLast.Location = new Point(715, 548);
             btnHoldingsLast.Margin = new Padding(3, 2, 3, 2);
             btnHoldingsLast.Name = "btnHoldingsLast";
             btnHoldingsLast.Size = new Size(82, 22);
@@ -317,7 +287,7 @@
             // 
             // btnHoldingsNext
             // 
-            btnHoldingsNext.Location = new Point(628, 463);
+            btnHoldingsNext.Location = new Point(627, 548);
             btnHoldingsNext.Margin = new Padding(3, 2, 3, 2);
             btnHoldingsNext.Name = "btnHoldingsNext";
             btnHoldingsNext.Size = new Size(82, 22);
@@ -329,7 +299,7 @@
             // 
             // btnHoldingsPrevious
             // 
-            btnHoldingsPrevious.Location = new Point(541, 463);
+            btnHoldingsPrevious.Location = new Point(540, 548);
             btnHoldingsPrevious.Margin = new Padding(3, 2, 3, 2);
             btnHoldingsPrevious.Name = "btnHoldingsPrevious";
             btnHoldingsPrevious.Size = new Size(82, 22);
@@ -341,7 +311,7 @@
             // 
             // btnHoldingsFirst
             // 
-            btnHoldingsFirst.Location = new Point(453, 463);
+            btnHoldingsFirst.Location = new Point(452, 548);
             btnHoldingsFirst.Margin = new Padding(3, 2, 3, 2);
             btnHoldingsFirst.Name = "btnHoldingsFirst";
             btnHoldingsFirst.Size = new Size(82, 22);
@@ -353,7 +323,7 @@
             // 
             // btnMastersLast
             // 
-            btnMastersLast.Location = new Point(715, 692);
+            btnMastersLast.Location = new Point(715, 818);
             btnMastersLast.Margin = new Padding(3, 2, 3, 2);
             btnMastersLast.Name = "btnMastersLast";
             btnMastersLast.Size = new Size(82, 22);
@@ -365,7 +335,7 @@
             // 
             // btnMastersNext
             // 
-            btnMastersNext.Location = new Point(627, 692);
+            btnMastersNext.Location = new Point(627, 818);
             btnMastersNext.Margin = new Padding(3, 2, 3, 2);
             btnMastersNext.Name = "btnMastersNext";
             btnMastersNext.Size = new Size(82, 22);
@@ -377,7 +347,7 @@
             // 
             // btnMastersPrevious
             // 
-            btnMastersPrevious.Location = new Point(540, 692);
+            btnMastersPrevious.Location = new Point(540, 818);
             btnMastersPrevious.Margin = new Padding(3, 2, 3, 2);
             btnMastersPrevious.Name = "btnMastersPrevious";
             btnMastersPrevious.Size = new Size(82, 22);
@@ -389,7 +359,7 @@
             // 
             // btnMastersFirst
             // 
-            btnMastersFirst.Location = new Point(452, 692);
+            btnMastersFirst.Location = new Point(452, 818);
             btnMastersFirst.Margin = new Padding(3, 2, 3, 2);
             btnMastersFirst.Name = "btnMastersFirst";
             btnMastersFirst.Size = new Size(82, 22);
@@ -401,7 +371,7 @@
             // 
             // btnDeleteMaster
             // 
-            btnDeleteMaster.Location = new Point(184, 692);
+            btnDeleteMaster.Location = new Point(184, 818);
             btnDeleteMaster.Margin = new Padding(3, 2, 3, 2);
             btnDeleteMaster.Name = "btnDeleteMaster";
             btnDeleteMaster.Size = new Size(82, 22);
@@ -413,7 +383,7 @@
             // 
             // btnUpdateMaster
             // 
-            btnUpdateMaster.Location = new Point(97, 692);
+            btnUpdateMaster.Location = new Point(97, 818);
             btnUpdateMaster.Margin = new Padding(3, 2, 3, 2);
             btnUpdateMaster.Name = "btnUpdateMaster";
             btnUpdateMaster.Size = new Size(82, 22);
@@ -425,7 +395,7 @@
             // 
             // btnAddMaster
             // 
-            btnAddMaster.Location = new Point(10, 692);
+            btnAddMaster.Location = new Point(10, 818);
             btnAddMaster.Margin = new Padding(3, 2, 3, 2);
             btnAddMaster.Name = "btnAddMaster";
             btnAddMaster.Size = new Size(82, 22);
@@ -437,7 +407,7 @@
             // 
             // btnAllMasters
             // 
-            btnAllMasters.Location = new Point(271, 692);
+            btnAllMasters.Location = new Point(271, 818);
             btnAllMasters.Margin = new Padding(3, 2, 3, 2);
             btnAllMasters.Name = "btnAllMasters";
             btnAllMasters.Size = new Size(82, 22);
@@ -452,11 +422,74 @@
             toolTip1.IsBalloon = true;
             toolTip1.ShowAlways = true;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(clientsGridView);
+            panel1.Location = new Point(12, 50);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1662, 202);
+            panel1.TabIndex = 29;
+            toolTip1.SetToolTip(panel1, "Цей компонент відображає інформацію про клієнтів біржі з бази даних. Використовуйте цю таблицю для перегляду даних про клієнтів, їхні угоди та інші важливі деталі.");
+            // 
+            // clientsGridView
+            // 
+            clientsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            clientsGridView.Location = new Point(8, 14);
+            clientsGridView.Margin = new Padding(3, 2, 3, 2);
+            clientsGridView.Name = "clientsGridView";
+            clientsGridView.RowHeadersWidth = 51;
+            clientsGridView.RowTemplate.Height = 29;
+            clientsGridView.Size = new Size(1643, 172);
+            clientsGridView.TabIndex = 30;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(holdingsGridView);
+            panel2.Location = new Point(10, 341);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1662, 202);
+            panel2.TabIndex = 30;
+            toolTip1.SetToolTip(panel2, "Цей компонент показує акції, які утримує клієнт. Він відображає інформацію про назву акції, кількість одиниць та інші важливі деталі.");
+            // 
+            // holdingsGridView
+            // 
+            holdingsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            holdingsGridView.Location = new Point(10, 15);
+            holdingsGridView.Margin = new Padding(3, 2, 3, 2);
+            holdingsGridView.Name = "holdingsGridView";
+            holdingsGridView.RowHeadersWidth = 51;
+            holdingsGridView.RowTemplate.Height = 29;
+            holdingsGridView.Size = new Size(1643, 172);
+            holdingsGridView.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(mastersGridView);
+            panel3.Location = new Point(12, 611);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1662, 202);
+            panel3.TabIndex = 31;
+            toolTip1.SetToolTip(panel3, "Цей компонент показує загальний перелік акцій, які доступні на біржі. Ви можете переглядати інформацію про різні компанії, їхні ціни, зміни та інші важливі деталі.");
+            // 
+            // mastersGridView
+            // 
+            mastersGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            mastersGridView.Location = new Point(10, 15);
+            mastersGridView.Margin = new Padding(3, 2, 3, 2);
+            mastersGridView.Name = "mastersGridView";
+            mastersGridView.RowHeadersWidth = 51;
+            mastersGridView.RowTemplate.Height = 29;
+            mastersGridView.Size = new Size(1643, 172);
+            mastersGridView.TabIndex = 14;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1664, 782);
+            ClientSize = new Size(1686, 851);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(btnAllMasters);
             Controls.Add(btnMastersLast);
             Controls.Add(btnMastersNext);
@@ -472,11 +505,9 @@
             Controls.Add(btnDeleteHolding);
             Controls.Add(btnUpdateHolding);
             Controls.Add(btnAddHolding);
-            Controls.Add(mastersGridView);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(holdingsGridView);
             Controls.Add(btnClinetsDelete);
             Controls.Add(btnClientsUpdate);
             Controls.Add(btnClientsLast);
@@ -484,7 +515,6 @@
             Controls.Add(btnClientsPrevious);
             Controls.Add(btnClientsFirst);
             Controls.Add(AddClientButton);
-            Controls.Add(clientsGridView);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 2, 3, 2);
@@ -494,12 +524,15 @@
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)clientsGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)holdingsGridView).EndInit();
-            ((System.ComponentModel.ISupportInitialize)mastersGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)mastersBindingSource).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)clientsGridView).EndInit();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)holdingsGridView).EndInit();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)mastersGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -512,7 +545,6 @@
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem contextToolStripMenuItem;
-        private DataGridView clientsGridView;
         private Button AddClientButton;
         private BindingSource clientsBindingSource;
         private Button btnClientsFirst;
@@ -521,11 +553,9 @@
         private Button btnClientsLast;
         private Button btnClientsUpdate;
         private Button btnClinetsDelete;
-        private DataGridView holdingsGridView;
         private Label label1;
         private Label label2;
         private Label label3;
-        private DataGridView mastersGridView;
         private Button btnAddHolding;
         private Button btnUpdateHolding;
         private Button btnDeleteHolding;
@@ -544,5 +574,11 @@
         private Button btnAllMasters;
         private BindingSource mastersBindingSource;
         private ToolTip toolTip1;
+        private Panel panel1;
+        private DataGridView clientsGridView;
+        private Panel panel2;
+        private DataGridView holdingsGridView;
+        private Panel panel3;
+        private DataGridView mastersGridView;
     }
 }
