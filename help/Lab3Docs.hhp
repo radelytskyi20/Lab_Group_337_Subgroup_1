@@ -1,0 +1,27 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Lab3Docs.chm
+Contents file=Table of Contents.hhc
+Default topic=content\main\main.html
+Display compile progress=No
+Language=0x422 Украинский (Украина)
+Title=Лабораторна робота №3 | Документація
+
+
+[FILES]
+content\clients\add_client.html
+content\clients\main_clients.html
+content\clients\nav_delete_client.html
+content\clients\update_client.html
+content\holdings\add_holding.html
+content\holdings\main_holdings.html
+content\holdings\nav_delete_holding.html
+content\holdings\update_holding.html
+content\main\main.html
+content\masters\add_masters.html
+content\masters\main_masters.html
+content\masters\nav_delete_master.html
+content\masters\update_master.html
+
+[INFOTYPES]
+

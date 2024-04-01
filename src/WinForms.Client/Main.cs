@@ -259,5 +259,17 @@ namespace WinForms.Client
                 "Veronika Glotova\n" +
                 "Nastya Borzenko"
                 );
+
+        private void contextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = "D:\\Университет\\3 КУРС 2 СЕМЕСТР\\Технологии создания программ(Момот)\\Labs\\help\\Lab3Docs.chm";
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("Doc file not found!");
+                return;
+            }
+
+            Help.ShowHelp(this, path);
+        }
     }
 }

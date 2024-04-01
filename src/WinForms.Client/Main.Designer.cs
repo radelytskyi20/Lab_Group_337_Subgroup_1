@@ -70,6 +70,7 @@
             holdingsGridView = new DataGridView();
             panel3 = new Panel();
             mastersGridView = new DataGridView();
+            helpProvider1 = new HelpProvider();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)holdingsBindingSource).BeginInit();
@@ -116,15 +117,16 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(116, 22);
-            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Text = "Розробники";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // contextToolStripMenuItem
             // 
             contextToolStripMenuItem.Name = "contextToolStripMenuItem";
-            contextToolStripMenuItem.Size = new Size(116, 22);
-            contextToolStripMenuItem.Text = "Context";
+            contextToolStripMenuItem.Size = new Size(180, 22);
+            contextToolStripMenuItem.Text = "Зміст";
+            contextToolStripMenuItem.Click += contextToolStripMenuItem_Click;
             // 
             // AddClientButton
             // 
@@ -482,6 +484,10 @@
             mastersGridView.Size = new Size(1643, 172);
             mastersGridView.TabIndex = 14;
             // 
+            // helpProvider1
+            // 
+            helpProvider1.HelpNamespace = "D:\\Университет\\3 КУРС 2 СЕМЕСТР\\Технологии создания программ(Момот)\\Labs\\help\\Lab3.chm";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -580,5 +586,6 @@
         private DataGridView holdingsGridView;
         private Panel panel3;
         private DataGridView mastersGridView;
+        private HelpProvider helpProvider1;
     }
 }

@@ -23,30 +23,30 @@ namespace WinForms.Client
 
             var serviceProvoder = new ServiceCollection()
                 .AddDbContext<ApplicationDbContext>(options => options.UseSqlite($"Data Source={ConnectionStrings.Default}"))
-                
+
                 //thick services
-                //.AddTransient<IClientsManager, ClientsManager>()
-                //.AddTransient<IHoldingsManager, HoldingsManager>()
-                //.AddTransient<IMastersManager, MastersManager>()
-                
+                .AddTransient<IClientsManager, ClientsManager>()
+                .AddTransient<IHoldingsManager, HoldingsManager>()
+                .AddTransient<IMastersManager, MastersManager>()
+
                 //repositories
                 .AddTransient<IClientsManagerService, ClientsManagerService>()
                 .AddTransient<IHoldingsManagerService, HoldingsManagerService>()
                 .AddTransient<IMastersManagerService, MastersManagerService>()
                 
                 //api services => thin services
-                .AddTransient<IClientsManager, ClientsManagerApi>(provider =>
-                {
-                    return new ClientsManagerApi(new HttpClient());
-                })
-                .AddTransient<IHoldingsManager, HoldingsManagerApi>(provider =>
-                {
-                    return new HoldingsManagerApi(new HttpClient());
-                })
-                .AddTransient<IMastersManager, MastersManagerApi>(provider =>
-                {
-                    return new MastersManagerApi(new HttpClient());
-                })
+                //.AddTransient<IClientsManager, ClientsManagerApi>(provider =>
+                //{
+                //    return new ClientsManagerApi(new HttpClient());
+                //})
+                //.AddTransient<IHoldingsManager, HoldingsManagerApi>(provider =>
+                //{
+                //    return new HoldingsManagerApi(new HttpClient());
+                //})
+                //.AddTransient<IMastersManager, MastersManagerApi>(provider =>
+                //{
+                //    return new MastersManagerApi(new HttpClient());
+                //})
                 .BuildServiceProvider();
 
             

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&Atilde;&icirc;&euml;&icirc;&acirc;&iacute;&agrave;">
+		<param name="Local" value="content\main\main.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&Ecirc;&euml;&sup3;&ordm;&iacute;&ograve;&egrave;">
+		<param name="Local" value="content\clients\main_clients.html">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Auml;&icirc;&auml;&agrave;&ograve;&egrave;">
+			<param name="Local" value="content\clients\add_client.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Icirc;&iacute;&icirc;&acirc;&egrave;&ograve;&egrave;">
+			<param name="Local" value="content\clients\update_client.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Acirc;&egrave;&auml;&agrave;&euml;&egrave;&ograve;&egrave; | &Iacute;&agrave;&acirc;&sup3;&atilde;&agrave;&ouml;&sup3;&yuml;">
+			<param name="Local" value="content\clients\nav_delete_client.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&Iuml;&icirc;&eth;&ograve;&ocirc;&aring;&euml;&uuml;">
+		<param name="Local" value="content\holdings\main_holdings.html">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Auml;&icirc;&auml;&agrave;&ograve;&egrave;">
+			<param name="Local" value="content\holdings\add_holding.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Icirc;&iacute;&icirc;&acirc;&egrave;&ograve;&egrave;">
+			<param name="Local" value="content\holdings\update_holding.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Acirc;&egrave;&auml;&agrave;&euml;&egrave;&ograve;&egrave; | &Iacute;&agrave;&acirc;&sup3;&atilde;&agrave;&ouml;&sup3;&yuml;">
+			<param name="Local" value="content\holdings\nav_delete_holding.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="&Agrave;&ecirc;&ouml;&sup3;&iquest;">
+		<param name="Local" value="content\masters\main_masters.html">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Auml;&icirc;&auml;&agrave;&ograve;&egrave;">
+			<param name="Local" value="content\masters\add_masters.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Icirc;&iacute;&icirc;&acirc;&egrave;&ograve;&egrave;">
+			<param name="Local" value="content\masters\update_master.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="&Acirc;&egrave;&auml;&agrave;&euml;&egrave;&ograve;&egrave; | &Iacute;&agrave;&acirc;&sup3;&atilde;&agrave;&ouml;&sup3;&yuml;">
+			<param name="Local" value="content\masters\nav_delete_master.html">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>
