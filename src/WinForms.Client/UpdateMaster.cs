@@ -2,6 +2,7 @@
 using Library.Models;
 using System.Data;
 using WinForms.Client.Interfaces;
+using WinForms.Client.Utils;
 
 namespace WinForms.Client
 {
@@ -155,5 +156,7 @@ namespace WinForms.Client
         }
 
         private void btnExit_Click(object sender, EventArgs e) => Close();
+
+        private void UpdateMaster_HelpRequested(object sender, HelpEventArgs hlpevent) => HelpUtils.ShowHelp(this, "content/masters/update_master.html");
     }
 }

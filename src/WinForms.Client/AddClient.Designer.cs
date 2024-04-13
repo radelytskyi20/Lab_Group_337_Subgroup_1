@@ -63,211 +63,223 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(10, 7);
             label1.Name = "label1";
-            label1.Size = new Size(63, 20);
+            label1.Size = new Size(51, 15);
             label1.TabIndex = 0;
             label1.Text = "AcctNbr";
             // 
             // AcctNbrTextBox
             // 
-            AcctNbrTextBox.Location = new Point(81, 6);
+            AcctNbrTextBox.Location = new Point(71, 4);
+            AcctNbrTextBox.Margin = new Padding(3, 2, 3, 2);
             AcctNbrTextBox.Name = "AcctNbrTextBox";
-            AcctNbrTextBox.Size = new Size(125, 27);
+            AcctNbrTextBox.Size = new Size(110, 23);
             AcctNbrTextBox.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 56);
+            label2.Location = new Point(10, 42);
             label2.Name = "label2";
-            label2.Size = new Size(76, 20);
+            label2.Size = new Size(61, 15);
             label2.TabIndex = 2;
             label2.Text = "FirstName";
             // 
             // FirstNameTextBox
             // 
-            FirstNameTextBox.Location = new Point(94, 49);
+            FirstNameTextBox.Location = new Point(82, 37);
+            FirstNameTextBox.Margin = new Padding(3, 2, 3, 2);
             FirstNameTextBox.Name = "FirstNameTextBox";
-            FirstNameTextBox.Size = new Size(125, 27);
+            FirstNameTextBox.Size = new Size(110, 23);
             FirstNameTextBox.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 102);
+            label3.Location = new Point(10, 76);
             label3.Name = "label3";
-            label3.Size = new Size(75, 20);
+            label3.Size = new Size(60, 15);
             label3.TabIndex = 4;
             label3.Text = "LastName";
             // 
             // LastNameTextBox
             // 
-            LastNameTextBox.Location = new Point(94, 99);
+            LastNameTextBox.Location = new Point(82, 74);
+            LastNameTextBox.Margin = new Padding(3, 2, 3, 2);
             LastNameTextBox.Name = "LastNameTextBox";
-            LastNameTextBox.Size = new Size(125, 27);
+            LastNameTextBox.Size = new Size(110, 23);
             LastNameTextBox.TabIndex = 5;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 156);
+            label4.Location = new Point(10, 117);
             label4.Name = "label4";
-            label4.Size = new Size(62, 20);
+            label4.Size = new Size(49, 15);
             label4.TabIndex = 6;
             label4.Text = "Address";
             // 
             // AddressTextBox
             // 
-            AddressTextBox.Location = new Point(94, 153);
+            AddressTextBox.Location = new Point(82, 115);
+            AddressTextBox.Margin = new Padding(3, 2, 3, 2);
             AddressTextBox.Name = "AddressTextBox";
-            AddressTextBox.Size = new Size(125, 27);
+            AddressTextBox.Size = new Size(110, 23);
             AddressTextBox.TabIndex = 7;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(24, 212);
+            label5.Location = new Point(21, 159);
             label5.Name = "label5";
-            label5.Size = new Size(34, 20);
+            label5.Size = new Size(28, 15);
             label5.TabIndex = 8;
             label5.Text = "City";
             // 
             // CityTextBox
             // 
-            CityTextBox.Location = new Point(94, 205);
+            CityTextBox.Location = new Point(82, 154);
+            CityTextBox.Margin = new Padding(3, 2, 3, 2);
             CityTextBox.Name = "CityTextBox";
-            CityTextBox.Size = new Size(125, 27);
+            CityTextBox.Size = new Size(110, 23);
             CityTextBox.TabIndex = 9;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(288, 9);
+            label6.Location = new Point(252, 7);
             label6.Name = "label6";
-            label6.Size = new Size(43, 20);
+            label6.Size = new Size(33, 15);
             label6.TabIndex = 10;
             label6.Text = "State";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(288, 56);
+            label7.Location = new Point(252, 42);
             label7.Name = "label7";
-            label7.Size = new Size(31, 20);
+            label7.Size = new Size(24, 15);
             label7.TabIndex = 12;
             label7.Text = "Zip";
             // 
             // ZipTextBox
             // 
-            ZipTextBox.Location = new Point(337, 56);
+            ZipTextBox.Location = new Point(295, 42);
+            ZipTextBox.Margin = new Padding(3, 2, 3, 2);
             ZipTextBox.Name = "ZipTextBox";
-            ZipTextBox.Size = new Size(125, 27);
+            ZipTextBox.Size = new Size(110, 23);
             ZipTextBox.TabIndex = 13;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(288, 116);
+            label8.Location = new Point(252, 87);
             label8.Name = "label8";
-            label8.Size = new Size(50, 20);
+            label8.Size = new Size(41, 15);
             label8.TabIndex = 14;
             label8.Text = "Phone";
             // 
             // PhoneTextBox
             // 
-            PhoneTextBox.Location = new Point(344, 116);
+            PhoneTextBox.Location = new Point(301, 87);
+            PhoneTextBox.Margin = new Padding(3, 2, 3, 2);
             PhoneTextBox.Name = "PhoneTextBox";
-            PhoneTextBox.Size = new Size(125, 27);
+            PhoneTextBox.Size = new Size(110, 23);
             PhoneTextBox.TabIndex = 15;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(280, 208);
+            label10.Location = new Point(245, 156);
             label10.Name = "label10";
-            label10.Size = new Size(77, 20);
+            label10.Size = new Size(62, 15);
             label10.TabIndex = 18;
             label10.Text = "SsNumber";
             // 
             // SsNumberTextBox
             // 
-            SsNumberTextBox.Location = new Point(363, 201);
+            SsNumberTextBox.Location = new Point(318, 151);
+            SsNumberTextBox.Margin = new Padding(3, 2, 3, 2);
             SsNumberTextBox.Name = "SsNumberTextBox";
-            SsNumberTextBox.Size = new Size(125, 27);
+            SsNumberTextBox.Size = new Size(110, 23);
             SsNumberTextBox.TabIndex = 19;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(516, 9);
+            label11.Location = new Point(452, 7);
             label11.Name = "label11";
-            label11.Size = new Size(72, 20);
+            label11.Size = new Size(56, 15);
             label11.TabIndex = 20;
             label11.Text = "BirthDate";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(516, 56);
+            label12.Location = new Point(452, 42);
             label12.Name = "label12";
-            label12.Size = new Size(69, 20);
+            label12.Size = new Size(55, 15);
             label12.TabIndex = 22;
             label12.Text = "RiskLevel";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(516, 98);
+            label13.Location = new Point(452, 74);
             label13.Name = "label13";
-            label13.Size = new Size(85, 20);
+            label13.Size = new Size(69, 15);
             label13.TabIndex = 24;
             label13.Text = "Occupation";
             // 
             // OccupationTextBox
             // 
-            OccupationTextBox.Location = new Point(603, 95);
+            OccupationTextBox.Location = new Point(528, 71);
+            OccupationTextBox.Margin = new Padding(3, 2, 3, 2);
             OccupationTextBox.Name = "OccupationTextBox";
-            OccupationTextBox.Size = new Size(125, 27);
+            OccupationTextBox.Size = new Size(110, 23);
             OccupationTextBox.TabIndex = 25;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(516, 153);
+            label14.Location = new Point(452, 115);
             label14.Name = "label14";
-            label14.Size = new Size(78, 20);
+            label14.Size = new Size(62, 15);
             label14.TabIndex = 26;
             label14.Text = "Objectives";
             // 
             // ObjectivesTextBox
             // 
-            ObjectivesTextBox.Location = new Point(603, 150);
+            ObjectivesTextBox.Location = new Point(528, 112);
+            ObjectivesTextBox.Margin = new Padding(3, 2, 3, 2);
             ObjectivesTextBox.Name = "ObjectivesTextBox";
-            ObjectivesTextBox.Size = new Size(125, 27);
+            ObjectivesTextBox.Size = new Size(110, 23);
             ObjectivesTextBox.TabIndex = 27;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(516, 208);
+            label15.Location = new Point(452, 156);
             label15.Name = "label15";
-            label15.Size = new Size(64, 20);
+            label15.Size = new Size(51, 15);
             label15.TabIndex = 28;
             label15.Text = "Interests";
             // 
             // InterestsTextBox
             // 
-            InterestsTextBox.Location = new Point(603, 208);
+            InterestsTextBox.Location = new Point(528, 156);
+            InterestsTextBox.Margin = new Padding(3, 2, 3, 2);
             InterestsTextBox.Name = "InterestsTextBox";
-            InterestsTextBox.Size = new Size(125, 27);
+            InterestsTextBox.Size = new Size(110, 23);
             InterestsTextBox.TabIndex = 29;
             // 
             // AddClientFormButton
             // 
-            AddClientFormButton.Location = new Point(12, 285);
+            AddClientFormButton.Location = new Point(10, 214);
+            AddClientFormButton.Margin = new Padding(3, 2, 3, 2);
             AddClientFormButton.Name = "AddClientFormButton";
-            AddClientFormButton.Size = new Size(848, 31);
+            AddClientFormButton.Size = new Size(742, 23);
             AddClientFormButton.TabIndex = 30;
             AddClientFormButton.Text = "Add";
             AddClientFormButton.UseVisualStyleBackColor = true;
@@ -275,9 +287,10 @@
             // 
             // ExitAddClientFormButton
             // 
-            ExitAddClientFormButton.Location = new Point(12, 322);
+            ExitAddClientFormButton.Location = new Point(10, 242);
+            ExitAddClientFormButton.Margin = new Padding(3, 2, 3, 2);
             ExitAddClientFormButton.Name = "ExitAddClientFormButton";
-            ExitAddClientFormButton.Size = new Size(848, 31);
+            ExitAddClientFormButton.Size = new Size(742, 23);
             ExitAddClientFormButton.TabIndex = 31;
             ExitAddClientFormButton.Text = "Exit";
             ExitAddClientFormButton.UseVisualStyleBackColor = true;
@@ -286,31 +299,34 @@
             // comboBoxState
             // 
             comboBoxState.FormattingEnabled = true;
-            comboBoxState.Location = new Point(337, 6);
+            comboBoxState.Location = new Point(295, 4);
+            comboBoxState.Margin = new Padding(3, 2, 3, 2);
             comboBoxState.Name = "comboBoxState";
-            comboBoxState.Size = new Size(151, 28);
+            comboBoxState.Size = new Size(133, 23);
             comboBoxState.TabIndex = 32;
             // 
             // dateTimePickerBirthDate
             // 
-            dateTimePickerBirthDate.Location = new Point(594, 9);
+            dateTimePickerBirthDate.Location = new Point(520, 7);
+            dateTimePickerBirthDate.Margin = new Padding(3, 2, 3, 2);
             dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
-            dateTimePickerBirthDate.Size = new Size(266, 27);
+            dateTimePickerBirthDate.Size = new Size(233, 23);
             dateTimePickerBirthDate.TabIndex = 34;
             // 
             // comboBoxRiskLevel
             // 
             comboBoxRiskLevel.FormattingEnabled = true;
-            comboBoxRiskLevel.Location = new Point(591, 52);
+            comboBoxRiskLevel.Location = new Point(517, 39);
+            comboBoxRiskLevel.Margin = new Padding(3, 2, 3, 2);
             comboBoxRiskLevel.Name = "comboBoxRiskLevel";
-            comboBoxRiskLevel.Size = new Size(151, 28);
+            comboBoxRiskLevel.Size = new Size(133, 23);
             comboBoxRiskLevel.TabIndex = 35;
             // 
             // AddClient
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(869, 366);
+            ClientSize = new Size(760, 274);
             Controls.Add(comboBoxRiskLevel);
             Controls.Add(dateTimePickerBirthDate);
             Controls.Add(comboBoxState);
@@ -341,9 +357,11 @@
             Controls.Add(label2);
             Controls.Add(AcctNbrTextBox);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "AddClient";
             Text = "AddClient";
             Load += AddClient_Load;
+            HelpRequested += AddClient_HelpRequested;
             ResumeLayout(false);
             PerformLayout();
         }

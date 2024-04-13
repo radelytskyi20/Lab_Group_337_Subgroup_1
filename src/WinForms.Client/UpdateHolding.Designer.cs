@@ -44,9 +44,10 @@
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(8, 206);
+            btnExit.Location = new Point(7, 154);
+            btnExit.Margin = new Padding(3, 2, 3, 2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(590, 29);
+            btnExit.Size = new Size(516, 22);
             btnExit.TabIndex = 23;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(8, 171);
+            btnUpdate.Location = new Point(7, 128);
+            btnUpdate.Margin = new Padding(3, 2, 3, 2);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(590, 29);
+            btnUpdate.Size = new Size(516, 22);
             btnUpdate.TabIndex = 22;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -64,91 +66,96 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(338, 116);
+            dateTimePicker1.Location = new Point(296, 87);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.Size = new Size(219, 23);
             dateTimePicker1.TabIndex = 21;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(338, 93);
+            label5.Location = new Point(296, 70);
             label5.Name = "label5";
-            label5.Size = new Size(62, 20);
+            label5.Size = new Size(49, 15);
             label5.TabIndex = 20;
             label5.Text = "PurDate";
             // 
             // textBoxPurPrice
             // 
-            textBoxPurPrice.Location = new Point(172, 116);
+            textBoxPurPrice.Location = new Point(150, 87);
+            textBoxPurPrice.Margin = new Padding(3, 2, 3, 2);
             textBoxPurPrice.Name = "textBoxPurPrice";
-            textBoxPurPrice.Size = new Size(125, 27);
+            textBoxPurPrice.Size = new Size(110, 23);
             textBoxPurPrice.TabIndex = 19;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(172, 93);
+            label4.Location = new Point(150, 70);
             label4.Name = "label4";
-            label4.Size = new Size(62, 20);
+            label4.Size = new Size(51, 15);
             label4.TabIndex = 18;
             label4.Text = "PurPrice";
             // 
             // textBoxShares
             // 
-            textBoxShares.Location = new Point(8, 116);
+            textBoxShares.Location = new Point(7, 87);
+            textBoxShares.Margin = new Padding(3, 2, 3, 2);
             textBoxShares.Name = "textBoxShares";
-            textBoxShares.Size = new Size(125, 27);
+            textBoxShares.Size = new Size(110, 23);
             textBoxShares.TabIndex = 17;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(8, 93);
+            label3.Location = new Point(7, 70);
             label3.Name = "label3";
-            label3.Size = new Size(52, 20);
+            label3.Size = new Size(41, 15);
             label3.TabIndex = 16;
             label3.Text = "Shares";
             // 
             // comboBoxSymbol
             // 
             comboBoxSymbol.FormattingEnabled = true;
-            comboBoxSymbol.Location = new Point(200, 36);
+            comboBoxSymbol.Location = new Point(175, 27);
+            comboBoxSymbol.Margin = new Padding(3, 2, 3, 2);
             comboBoxSymbol.Name = "comboBoxSymbol";
-            comboBoxSymbol.Size = new Size(151, 28);
+            comboBoxSymbol.Size = new Size(133, 23);
             comboBoxSymbol.TabIndex = 15;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(200, 13);
+            label2.Location = new Point(175, 10);
             label2.Name = "label2";
-            label2.Size = new Size(59, 20);
+            label2.Size = new Size(47, 15);
             label2.TabIndex = 14;
             label2.Text = "Symbol";
             // 
             // comboBoxAcctNbr
             // 
             comboBoxAcctNbr.FormattingEnabled = true;
-            comboBoxAcctNbr.Location = new Point(8, 36);
+            comboBoxAcctNbr.Location = new Point(7, 27);
+            comboBoxAcctNbr.Margin = new Padding(3, 2, 3, 2);
             comboBoxAcctNbr.Name = "comboBoxAcctNbr";
-            comboBoxAcctNbr.Size = new Size(151, 28);
+            comboBoxAcctNbr.Size = new Size(133, 23);
             comboBoxAcctNbr.TabIndex = 13;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(8, 13);
+            label1.Location = new Point(7, 10);
             label1.Name = "label1";
-            label1.Size = new Size(63, 20);
+            label1.Size = new Size(51, 15);
             label1.TabIndex = 12;
             label1.Text = "AcctNbr";
             // 
             // UpdateHolding
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(605, 245);
+            ClientSize = new Size(529, 184);
             Controls.Add(btnExit);
             Controls.Add(btnUpdate);
             Controls.Add(dateTimePicker1);
@@ -161,9 +168,11 @@
             Controls.Add(label2);
             Controls.Add(comboBoxAcctNbr);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UpdateHolding";
             Text = "UpdateHolding";
             Load += UpdateHolding_Load;
+            HelpRequested += UpdateHolding_HelpRequested;
             ResumeLayout(false);
             PerformLayout();
         }

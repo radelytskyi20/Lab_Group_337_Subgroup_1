@@ -1,5 +1,6 @@
 using Library.Models;
 using WinForms.Client.Interfaces;
+using WinForms.Client.Utils;
 
 namespace WinForms.Client
 {
@@ -8,6 +9,7 @@ namespace WinForms.Client
         private readonly IClientsManager _clientManager;
         private readonly IHoldingsManager _holdingsManager;
         private readonly IMastersManager _mastersManager;
+
         public Main(IClientsManager clientsManager, IHoldingsManager holdingsManager, IMastersManager mastersManager)
         {
             _clientManager = clientsManager;
@@ -260,16 +262,7 @@ namespace WinForms.Client
                 "Nastya Borzenko"
                 );
 
-        private void contextToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string path = "D:\\Университет\\3 КУРС 2 СЕМЕСТР\\Технологии создания программ(Момот)\\Labs\\help\\Lab3Docs.chm";
-            if (!File.Exists(path))
-            {
-                MessageBox.Show("Doc file not found!");
-                return;
-            }
-
-            Help.ShowHelp(this, path);
-        }
+        private void contextToolStripMenuItem_Click(object sender, EventArgs e) => HelpUtils.ShowHelp(this, "content/main/main.html");
+        private void Main_HelpRequested(object sender, HelpEventArgs hlpevent) => HelpUtils.ShowHelp(this, "content/main/main.html");
     }
 }

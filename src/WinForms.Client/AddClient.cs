@@ -1,5 +1,6 @@
 ﻿using Library.Constants;
 using WinForms.Client.Interfaces;
+using WinForms.Client.Utils;
 
 
 namespace WinForms.Client
@@ -119,5 +120,7 @@ namespace WinForms.Client
         }
 
         private void ExitAddClientFormButton_Click(object sender, EventArgs e) => Close();
+
+        private void AddClient_HelpRequested(object sender, HelpEventArgs hlpevent) => HelpUtils.ShowHelp(this, "content/clients/add_client.html");
     }
 }

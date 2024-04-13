@@ -117,14 +117,14 @@
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(180, 22);
+            aboutToolStripMenuItem.Size = new Size(141, 22);
             aboutToolStripMenuItem.Text = "Розробники";
             aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // contextToolStripMenuItem
             // 
             contextToolStripMenuItem.Name = "contextToolStripMenuItem";
-            contextToolStripMenuItem.Size = new Size(180, 22);
+            contextToolStripMenuItem.Size = new Size(141, 22);
             contextToolStripMenuItem.Text = "Зміст";
             contextToolStripMenuItem.Click += contextToolStripMenuItem_Click;
             // 
@@ -528,6 +528,7 @@
             Text = "Main";
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
+            HelpRequested += Main_HelpRequested;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)clientsBindingSource).EndInit();
